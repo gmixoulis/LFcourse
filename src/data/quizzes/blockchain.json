@@ -1,0 +1,1280 @@
+{
+  "fundamentals_of_blockchain": [
+    {
+      "question": "What is the execute-order-validate architecture in Hyperledger Fabric?",
+      "options": [
+        "A) Transactions are ordered first, then executed and validated",
+        "B) Transactions are executed first, then ordered, then validated",
+        "C) Transactions are validated first, then executed and ordered",
+        "D) All three phases happen simultaneously"
+      ],
+      "correct_answer": "B",
+      "explanation": "Hyperledger Fabric uses the execute-order-validate architecture where transactions are first executed (endorsed) by peers, then ordered by the ordering service, and finally validated before being committed to the ledger."
+    },
+    {
+      "question": "What is a key difference between permissioned and permissionless blockchains?",
+      "options": [
+        "A) Permissioned blockchains are faster but less secure",
+        "B) Permissionless blockchains require known identities",
+        "C) Permissioned blockchains have known, identified participants",
+        "D) There is no significant difference"
+      ],
+      "correct_answer": "C",
+      "explanation": "Permissioned blockchains like Hyperledger Fabric operate among known, identified participants under a governance model, while permissionless blockchains allow anonymous participation."
+    },
+    {
+      "question": "What consensus mechanisms does Hyperledger Fabric support?",
+      "options": [
+        "A) Only Proof of Work (PoW)",
+        "B) Only Byzantine Fault Tolerant (BFT)",
+        "C) Pluggable consensus protocols including CFT and BFT",
+        "D) Only Proof of Stake (PoS)"
+      ],
+      "correct_answer": "C",
+      "explanation": "Fabric supports pluggable consensus protocols that can be tailored to specific use cases, including Crash Fault Tolerant (CFT) and Byzantine Fault Tolerant (BFT) consensus mechanisms."
+    },
+    {
+      "question": "What are smart contracts called in Hyperledger Fabric?",
+      "options": ["A) Contracts", "B) Chaincode", "C) Scripts", "D) Modules"],
+      "correct_answer": "B",
+      "explanation": "In Hyperledger Fabric, smart contracts are called 'chaincode' and can be written in general-purpose programming languages like Go, Java, and Node.js."
+    },
+    {
+      "question": "What is the role of an orderer in Hyperledger Fabric?",
+      "options": [
+        "A) Execute chaincode and maintain the ledger",
+        "B) Establish consensus on transaction order and broadcast blocks",
+        "C) Validate transactions and update the world state",
+        "D) Manage user identities and certificates"
+      ],
+      "correct_answer": "B",
+      "explanation": "The ordering service (orderer) establishes consensus on the order of transactions and broadcasts blocks to peers. It's responsible for creating the immutable sequence of transaction blocks."
+    },
+    {
+      "question": "What are the two types of peers in Hyperledger Fabric based on their roles?",
+      "options": [
+        "A) Client peers and server peers",
+        "B) Primary peers and secondary peers",
+        "C) Endorsing peers and committing peers",
+        "D) Active peers and passive peers"
+      ],
+      "correct_answer": "C",
+      "explanation": "Peers can be categorized as endorsing peers (which execute and endorse transactions) and committing peers (which validate and commit transactions to the ledger). All peers can be committing peers."
+    },
+    {
+      "question": "What is a channel in Hyperledger Fabric?",
+      "options": [
+        "A) A communication protocol between peers",
+        "B) A private subnet within the blockchain network for specific participants",
+        "C) A database storage mechanism",
+        "D) A consensus algorithm"
+      ],
+      "correct_answer": "B",
+      "explanation": "Channels provide private subnets within a Fabric network, allowing specific participants to have isolated communications and transactions separate from other channel participants."
+    },
+    {
+      "question": "What is the purpose of a Membership Service Provider (MSP)?",
+      "options": [
+        "A) To order transactions into blocks",
+        "B) To execute chaincode functions",
+        "C) To associate entities in the network with cryptographic identities",
+        "D) To store transaction data"
+      ],
+      "correct_answer": "C",
+      "explanation": "MSP is responsible for associating entities in the network with cryptographic identities, managing certificates, and defining the rules for authentication and authorization."
+    },
+    {
+      "question": "What is the difference between local MSP and channel MSP?",
+      "options": [
+        "A) Local MSP is for peers, Channel MSP is for orderers",
+        "B) Local MSP is node-specific, Channel MSP defines channel participants",
+        "C) There is no difference between them",
+        "D) Local MSP is encrypted, Channel MSP is not"
+      ],
+      "correct_answer": "B",
+      "explanation": "Local MSP belongs to a specific node and is used for node-specific operations, while Channel MSP defines all organizations that participate in a particular channel."
+    },
+    {
+      "question": "What is the chaincode lifecycle in Hyperledger Fabric 2.x?",
+      "options": [
+        "A) Install \u2192 Instantiate \u2192 Invoke",
+        "B) Package \u2192 Install \u2192 Approve \u2192 Commit",
+        "C) Deploy \u2192 Activate \u2192 Execute",
+        "D) Create \u2192 Upload \u2192 Run"
+      ],
+      "correct_answer": "B",
+      "explanation": "Hyperledger Fabric 2.x introduced a new chaincode lifecycle: Package \u2192 Install \u2192 Approve \u2192 Commit, which enables decentralized governance for smart contracts."
+    },
+    {
+      "question": "Which programming languages can be used to write chaincode in Hyperledger Fabric?",
+      "options": [
+        "A) Only Solidity",
+        "B) Go, Java, and Node.js",
+        "C) Only Go and Python",
+        "D) Any programming language"
+      ],
+      "correct_answer": "B",
+      "explanation": "Hyperledger Fabric supports chaincode development in general-purpose programming languages including Go, Java, and Node.js (JavaScript)."
+    },
+    {
+      "question": "What is an endorsement policy?",
+      "options": [
+        "A) A rule that defines which peers must endorse a transaction",
+        "B) A method for encrypting transaction data",
+        "C) A consensus algorithm for ordering transactions",
+        "D) A database indexing strategy"
+      ],
+      "correct_answer": "A",
+      "explanation": "An endorsement policy specifies which peers (or how many) need to endorse a transaction for it to be valid. It defines the required endorsements for transaction validation."
+    },
+    {
+      "question": "What happens during the chaincode endorsement process?",
+      "options": [
+        "A) Peers vote on whether to accept the chaincode",
+        "B) Peers execute the chaincode and cryptographically sign the results",
+        "C) The orderer validates the chaincode logic",
+        "D) The client application approves the chaincode"
+      ],
+      "correct_answer": "B",
+      "explanation": "During endorsement, endorsing peers execute the chaincode, simulate the transaction, and cryptographically sign the results if they agree with the execution outcome."
+    },
+    {
+      "question": "What is state-based endorsement in Hyperledger Fabric?",
+      "options": [
+        "A) Endorsement policies that apply to the entire chaincode",
+        "B) Endorsement policies that can be set for individual keys/assets",
+        "C) A consensus mechanism for state validation",
+        "D) A method for state database optimization"
+      ],
+      "correct_answer": "B",
+      "explanation": "State-based endorsement allows setting endorsement policies for individual keys or assets, providing more granular control over who can modify specific data."
+    },
+    {
+      "question": "What is the Fabric Gateway service introduced in Hyperledger Fabric v2.4?",
+      "options": [
+        "A) A new consensus mechanism",
+        "B) A simplified API that moves transaction processing to the peer",
+        "C) A database management system",
+        "D) An identity management service"
+      ],
+      "correct_answer": "B",
+      "explanation": "The Fabric Gateway service provides a simplified API by moving node connection and transaction processing requirements from client applications to the peer nodes."
+    },
+    {
+      "question": "What is the difference between evaluateTransaction and submitTransaction in Fabric Gateway APIs?",
+      "options": [
+        "A) evaluateTransaction modifies the ledger, submitTransaction queries it",
+        "B) evaluateTransaction queries the ledger, submitTransaction modifies it",
+        "C) Both functions do the same thing",
+        "D) evaluateTransaction is deprecated"
+      ],
+      "correct_answer": "B",
+      "explanation": "evaluateTransaction is used for read-only queries that don't modify the ledger state, while submitTransaction is used for transactions that update the ledger."
+    },
+    {
+      "question": "What is offline signing in the Fabric Gateway client API?",
+      "options": [
+        "A) Signing transactions without internet connection",
+        "B) A security feature that generates signatures from message digests without exposing private keys",
+        "C) A backup method for transaction signing",
+        "D) Signing transactions after they are committed"
+      ],
+      "correct_answer": "B",
+      "explanation": "Offline signing allows cryptographic signatures to be generated from message digests without exposing private keys directly on the client side, enhancing security."
+    },
+    {
+      "question": "Which Fabric Gateway client APIs are available?",
+      "options": [
+        "A) Only Node.js",
+        "B) Go, Node.js, and Java",
+        "C) Only Java and Python",
+        "D) All major programming languages"
+      ],
+      "correct_answer": "B",
+      "explanation": "Fabric Gateway client APIs are available for Go, Node.js (JavaScript), and Java, providing developers with multiple language options."
+    },
+    {
+      "question": "What is the purpose of private data collections in Hyperledger Fabric?",
+      "options": [
+        "A) To encrypt all transaction data",
+        "B) To allow a subset of channel members to keep data private from others",
+        "C) To improve transaction performance",
+        "D) To backup transaction data"
+      ],
+      "correct_answer": "B",
+      "explanation": "Private data collections allow a defined subset of organizations on a channel to endorse, commit, or query private data without creating separate channels."
+    },
+    {
+      "question": "What information is stored on the main channel ledger when using private data collections?",
+      "options": [
+        "A) The complete private data",
+        "B) Only metadata about the private data",
+        "C) A hash of the private data",
+        "D) No information is stored"
+      ],
+      "correct_answer": "C",
+      "explanation": "When using private data collections, only a hash of the private data is stored on the main channel ledger, while the actual private data is stored separately on authorized peers."
+    },
+    {
+      "question": "What is the 'blockToLive' property in private data collection configuration?",
+      "options": [
+        "A) The number of blocks the collection will exist",
+        "B) The number of blocks after which private data is automatically purged",
+        "C) The maximum block size for private data",
+        "D) The number of backup blocks to maintain"
+      ],
+      "correct_answer": "B",
+      "explanation": "The 'blockToLive' property specifies how long private data should remain in the private database in terms of blocks before being automatically purged."
+    },
+    {
+      "question": "In a production Hyperledger Fabric environment, what requires ongoing monitoring?",
+      "options": [
+        "A) Only the orderer service",
+        "B) Only chaincode containers",
+        "C) All peer containers including CPU, network, and memory",
+        "D) Only peers running chaincode"
+      ],
+      "correct_answer": "C",
+      "explanation": "In production, comprehensive monitoring of all peer containers is essential, including CPU, network, and memory usage to maintain optimal network performance and reliability."
+    },
+    {
+      "question": "What is the recommended ordering service for production deployments?",
+      "options": [
+        "A) Solo (single orderer)",
+        "B) Kafka-based ordering",
+        "C) Raft-based ordering",
+        "D) Any ordering service is fine"
+      ],
+      "correct_answer": "C",
+      "explanation": "Raft-based ordering service is recommended for production deployments due to its fault tolerance, scalability, and simpler operational characteristics compared to Kafka."
+    },
+    {
+      "question": "What security considerations are important for Hyperledger Fabric production networks?",
+      "options": [
+        "A) Only network firewalls",
+        "B) TLS encryption, PKI management, and access controls",
+        "C) Only user authentication",
+        "D) Only data encryption"
+      ],
+      "correct_answer": "B",
+      "explanation": "Production Fabric networks require comprehensive security including TLS encryption for communications, proper PKI certificate management, and appropriate access controls."
+    },
+    {
+      "question": "Which command is used to calculate the package ID for a chaincode package?",
+      "options": [
+        "A) peer lifecycle chaincode calculatepackageid",
+        "B) peer lifecycle chaincode querypackageid",
+        "C) peer lifecycle chaincode getpackageid",
+        "D) peer lifecycle chaincode packageid"
+      ],
+      "correct_answer": "A",
+      "explanation": "The peer lifecycle chaincode calculatepackageid command calculates the package ID for a packaged chaincode."
+    },
+    {
+      "question": "What does the fabric-ca-client affiliation list command do?",
+      "options": [
+        "A) Lists all users in the CA",
+        "B) Lists all certificates issued",
+        "C) Lists the affiliations table from CA database",
+        "D) Lists all organizations in the network"
+      ],
+      "correct_answer": "C",
+      "explanation": "The fabric-ca-client affiliation list command displays the affiliations table from the CA database."
+    },
+    {
+      "question": "Which flag is used with configtxgen to specify the profile from configtx.yaml?",
+      "options": [
+        "A) -config",
+        "B) -profile",
+        "C) -template",
+        "D) -configProfile"
+      ],
+      "correct_answer": "B",
+      "explanation": "The -profile flag specifies which profile from configtx.yaml to use for generation."
+    },
+    {
+      "question": "What does the peer channel getinfo command provide?",
+      "options": [
+        "A) Channel member list",
+        "B) Blockchain information of a specified channel",
+        "C) Channel configuration details",
+        "D) Chaincode list on the channel"
+      ],
+      "correct_answer": "B",
+      "explanation": "The peer channel getinfo command provides blockchain information of a specified channel including height and current block hash."
+    },
+    {
+      "question": "Which osnadmin command lists channels that an orderer has joined?",
+      "options": [
+        "A) osnadmin channel show",
+        "B) osnadmin channel query",
+        "C) osnadmin channel list",
+        "D) osnadmin channel info"
+      ],
+      "correct_answer": "C",
+      "explanation": "The osnadmin channel list command shows all channels that the ordering service node has joined."
+    },
+
+    {
+      "question": "What is the role of Membership Service Provider (MSP) in Hyperledger Fabric?",
+      "options": [
+        "A) To order transactions into blocks",
+        "B) To provide identity validation and authentication services",
+        "C) To store chaincode",
+        "D) To manage consensus protocols"
+      ],
+      "correct_answer": "B",
+      "explanation": "MSP provides identity validation and authentication services by defining the rules for validating identities and determining member privileges."
+    },
+    {
+      "question": "What happens during the endorsement phase of transaction flow?",
+      "options": [
+        "A) Transactions are ordered into blocks",
+        "B) Peers execute chaincode and generate read/write sets",
+        "C) Transactions are validated against endorsement policies",
+        "D) Blocks are committed to the ledger"
+      ],
+      "correct_answer": "B",
+      "explanation": "During endorsement, peers execute the chaincode simulation and generate read/write sets along with endorsement signatures."
+    },
+    {
+      "question": "What is the purpose of anchor peers in Hyperledger Fabric?",
+      "options": [
+        "A) To endorse all transactions",
+        "B) To order transactions",
+        "C) To facilitate cross-organization gossip communication",
+        "D) To store channel configuration"
+      ],
+      "correct_answer": "C",
+      "explanation": "Anchor peers facilitate gossip communication between organizations by serving as entry points for peers from other organizations."
+    },
+    {
+      "question": "What is the difference between world state and blockchain in Fabric?",
+      "options": [
+        "A) World state is the current values, blockchain is the transaction history",
+        "B) World state is encrypted, blockchain is not",
+        "C) World state is temporary, blockchain is permanent",
+        "D) There is no difference"
+      ],
+      "correct_answer": "A",
+      "explanation": "World state represents current values of all keys, while blockchain contains the immutable transaction history that created those values."
+    },
+    {
+      "question": "What is the purpose of the configtxlator tool?",
+      "options": [
+        "A) To generate genesis blocks",
+        "B) To translate between protobuf and JSON formats for configuration",
+        "C) To create channel transactions",
+        "D) To validate configuration files"
+      ],
+      "correct_answer": "B",
+      "explanation": "Configtxlator translates between protobuf and JSON representations, enabling human-readable configuration updates."
+    },
+
+    {
+      "question": "What is the difference between invoke and query operations in chaincode?",
+      "options": [
+        "A) Invoke modifies state, query only reads state",
+        "B) Invoke is faster than query",
+        "C) Query requires endorsement, invoke does not",
+        "D) There is no functional difference"
+      ],
+      "correct_answer": "A",
+      "explanation": "Invoke operations can modify the world state and require endorsement, while query operations only read state and don't change it."
+    },
+    {
+      "question": "What is chaincode shim in Hyperledger Fabric?",
+      "options": [
+        "A) A debugging tool for chaincode",
+        "B) An interface layer between chaincode and peer",
+        "C) A performance optimization technique",
+        "D) A security validation mechanism"
+      ],
+      "correct_answer": "B",
+      "explanation": "Chaincode shim provides the interface layer between user chaincode and the Fabric peer, handling communication and state access."
+    },
+    {
+      "question": "What is Chaincode as a Service (CCaaS) in Hyperledger Fabric?",
+      "options": [
+        "A) A cloud-based chaincode hosting service",
+        "B) A deployment model where chaincode runs as external service",
+        "C) A debugging service for chaincode",
+        "D) A chaincode marketplace"
+      ],
+      "correct_answer": "B",
+      "explanation": "CCaaS is a deployment model where chaincode runs as an external service connected to peers, rather than being managed by peers directly."
+    },
+    {
+      "question": "What is the purpose of the Init function in chaincode?",
+      "options": [
+        "A) To handle regular transactions",
+        "B) To initialize chaincode when first deployed or upgraded",
+        "C) To query the current state",
+        "D) To validate endorsement policies"
+      ],
+      "correct_answer": "B",
+      "explanation": "The Init function is called to initialize chaincode state when it's first deployed or when upgrading to a version that requires initialization."
+    },
+    {
+      "question": "What happens when chaincode execution results in a panic or error?",
+      "options": [
+        "A) The transaction is automatically retried",
+        "B) The transaction proposal response indicates failure",
+        "C) The peer shuts down",
+        "D) The error is ignored"
+      ],
+      "correct_answer": "B",
+      "explanation": "When chaincode execution fails, the transaction proposal response indicates the failure, and the transaction is not endorsed."
+    },
+
+    {
+      "question": "In private data collection, what is the memberOnlyRead policy used for?",
+      "options": [
+        "A) To restrict read access to collection members only",
+        "B) To allow only one member to read at a time",
+        "C) To enable read-only transactions",
+        "D) To configure read permissions for non-members"
+      ],
+      "correct_answer": "A",
+      "explanation": "The memberOnlyRead policy restricts read access to private data collection only to organizations that are members of the collection."
+    },
+    {
+      "question": "Where is private data temporarily stored during endorsement?",
+      "options": [
+        "A) In the channel ledger",
+        "B) In the ordering service",
+        "C) In a transient data store",
+        "D) In the world state database"
+      ],
+      "correct_answer": "C",
+      "explanation": "During endorsement, private data is temporarily stored in a transient data store local to the peer before being distributed to authorized peers."
+    },
+    {
+      "question": "What is the purpose of maxPeerCount in private data collections?",
+      "options": [
+        "A) Maximum peers that can be collection members",
+        "B) Maximum peers for data redundancy distribution",
+        "C) Maximum peers required for endorsement",
+        "D) Maximum peers in gossip network"
+      ],
+      "correct_answer": "B",
+      "explanation": "maxPeerCount defines the number of other peers that the endorsing peer will attempt to distribute private data to for redundancy."
+    },
+    {
+      "question": "Can private data collections be added to an existing chaincode without upgrading?",
+      "options": [
+        "A) Yes, they can be added dynamically",
+        "B) No, chaincode must be upgraded to add collections",
+        "C) Only if approved by all organizations",
+        "D) Only during channel creation"
+      ],
+      "correct_answer": "B",
+      "explanation": "Adding private data collections requires upgrading the chaincode definition with the new collection configuration."
+    },
+    {
+      "question": "What validation occurs for private data collection policies?",
+      "options": [
+        "A) Collection policy must be stricter than chaincode endorsement policy",
+        "B) Collection policy must be the same as chaincode endorsement policy",
+        "C) Collection policy must include all channel members",
+        "D) Collection policy cannot be more restrictive than chaincode endorsement policy"
+      ],
+      "correct_answer": "D",
+      "explanation": "Private data collection policies cannot be more restrictive than the chaincode endorsement policy to ensure proper endorsement."
+    },
+
+    {
+      "question": "What factors affect Hyperledger Fabric network throughput?",
+      "options": [
+        "A) Only block size and batch timeout",
+        "B) Block size, batch timeout, endorsement policy, and network latency",
+        "C) Only the number of peer nodes",
+        "D) Only the consensus algorithm used"
+      ],
+      "correct_answer": "B",
+      "explanation": "Network throughput is affected by multiple factors including block size, batch timeout, endorsement policy complexity, and network latency between nodes."
+    },
+    {
+      "question": "What is the recommended approach for handling high transaction volumes?",
+      "options": [
+        "A) Increase block size only",
+        "B) Decrease batch timeout only",
+        "C) Optimize endorsement policies and use multiple channels",
+        "D) Add more orderer nodes"
+      ],
+      "correct_answer": "C",
+      "explanation": "For high volumes, optimize endorsement policies to reduce complexity and use multiple channels to parallelize transaction processing."
+    },
+    {
+      "question": "How does the number of endorsing peers affect transaction latency?",
+      "options": [
+        "A) More endorsers always increase latency",
+        "B) More endorsers always decrease latency",
+        "C) More endorsers increase latency due to additional network calls",
+        "D) Number of endorsers has no effect on latency"
+      ],
+      "correct_answer": "C",
+      "explanation": "More endorsing peers increase transaction latency because the client must collect endorsements from additional peers over the network."
+    },
+    {
+      "question": "What is the impact of rich queries on CouchDB performance?",
+      "options": [
+        "A) They have no performance impact",
+        "B) They improve performance by using indexes",
+        "C) They can significantly slow down queries without proper indexing",
+        "D) They only work with simple key-value queries"
+      ],
+      "correct_answer": "C",
+      "explanation": "Rich queries without proper indexing can significantly slow down CouchDB performance, so indexes should be created for frequently queried fields."
+    },
+    {
+      "question": "What is the default PreferredMaxBytes value in orderer configuration?",
+      "options": ["A) 512 KB", "B) 1 MB", "C) 2 MB", "D) 5 MB"],
+      "correct_answer": "C",
+      "explanation": "The default PreferredMaxBytes in configtx.yaml is set to 2 MB for optimal block size management."
+    },
+
+    {
+      "question": "What cryptographic algorithm does Hyperledger Fabric use for digital signatures?",
+      "options": [
+        "A) RSA",
+        "B) DSA",
+        "C) ECDSA with P-256 curve",
+        "D) Ed25519"
+      ],
+      "correct_answer": "C",
+      "explanation": "Hyperledger Fabric uses ECDSA (Elliptic Curve Digital Signature Algorithm) with the P-256 curve for digital signatures."
+    },
+    {
+      "question": "What is Idemix in Hyperledger Fabric?",
+      "options": [
+        "A) A consensus algorithm",
+        "B) A cryptographic protocol suite for anonymous credentials",
+        "C) A chaincode development framework",
+        "D) A performance monitoring tool"
+      ],
+      "correct_answer": "B",
+      "explanation": "Idemix is a cryptographic protocol suite that enables anonymous credentials and unlinkable transactions using zero-knowledge proofs."
+    },
+    {
+      "question": "What is the purpose of mutual TLS in Hyperledger Fabric?",
+      "options": [
+        "A) To encrypt data at rest",
+        "B) To provide bidirectional authentication between network components",
+        "C) To improve network performance",
+        "D) To enable cross-channel communication"
+      ],
+      "correct_answer": "B",
+      "explanation": "Mutual TLS provides bidirectional authentication where both client and server authenticate each other using certificates."
+    },
+    {
+      "question": "What happens when a peer's TLS certificate expires?",
+      "options": [
+        "A) The peer continues to operate normally",
+        "B) The peer cannot communicate with other network components",
+        "C) Only endorsement operations are affected",
+        "D) The peer automatically generates a new certificate"
+      ],
+      "correct_answer": "B",
+      "explanation": "When a peer's TLS certificate expires, it cannot establish secure connections with other network components, causing a production outage."
+    },
+    {
+      "question": "How are transaction proposals protected in Hyperledger Fabric?",
+      "options": [
+        "A) They are encrypted with AES",
+        "B) They are signed by the client's private key",
+        "C) They are hashed using SHA-256",
+        "D) They are transmitted in plain text"
+      ],
+      "correct_answer": "B",
+      "explanation": "Transaction proposals are signed by the client's private key to ensure authenticity and prevent tampering."
+    },
+
+    {
+      "question": "What is the FABRIC_CFG_PATH environment variable used for?",
+      "options": [
+        "A) To specify the chaincode installation path",
+        "B) To specify the path containing configuration files",
+        "C) To specify the peer binary location",
+        "D) To specify the channel artifacts path"
+      ],
+      "correct_answer": "B",
+      "explanation": "FABRIC_CFG_PATH specifies the path where configuration files like configtx.yaml and core.yaml are located."
+    },
+    {
+      "question": "What is the purpose of the Bootstrap Admin in Fabric CA?",
+      "options": [
+        "A) To endorse transactions",
+        "B) To order blocks",
+        "C) To be the initial administrator identity for CA server startup",
+        "D) To manage peer nodes"
+      ],
+      "correct_answer": "C",
+      "explanation": "The Bootstrap Admin (-b option) is the initial administrator identity required to start the Fabric CA server and register other identities."
+    },
+    {
+      "question": "What does the --tls flag do in Fabric CLI commands?",
+      "options": [
+        "A) Enables TLS encryption for client-server communication",
+        "B) Generates new TLS certificates",
+        "C) Validates existing TLS certificates",
+        "D) Disables TLS for testing"
+      ],
+      "correct_answer": "A",
+      "explanation": "The --tls flag enables TLS encryption when the CLI communicates with network components like peers and orderers."
+    },
+    {
+      "question": "What is the role of the configtx.yaml file?",
+      "options": [
+        "A) To define peer configuration",
+        "B) To define channel and consortium configuration",
+        "C) To define chaincode parameters",
+        "D) To define user credentials"
+      ],
+      "correct_answer": "B",
+      "explanation": "The configtx.yaml file defines channel configurations, consortium settings, and profiles used by configtxgen to create channel artifacts."
+    },
+    {
+      "question": "What validation is performed when committing a chaincode definition?",
+      "options": [
+        "A) Only package ID validation",
+        "B) LifecycleEndorsement policy satisfaction and parameter consistency",
+        "C) Only endorsement policy syntax check",
+        "D) Only sequence number validation"
+      ],
+      "correct_answer": "B",
+      "explanation": "When committing a chaincode definition, Fabric validates that the LifecycleEndorsement policy is satisfied and parameters are consistent across approvals."
+    },
+    {
+      "question": "According to the Hyperledger Fabric documentation, what is the default validity period for Organization CA Root Certificates?",
+      "options": ["A) 5 years", "B) 10 years", "C) 15 years", "D) 20 years"],
+      "correct_answer": "C",
+      "explanation": "Organization CA Root Certificates are valid for 15 years by default, as specified in the certificate management documentation."
+    },
+    {
+      "question": "Which configuration parameter must be set in fabric-ca-server-config.yaml to allow renewal of expired certificates?",
+      "options": [
+        "A) allowExpiredRenewal: true",
+        "B) enableExpiredCertRenewal: true",
+        "C) reenrollignorecertexpiry: true",
+        "D) ignoreExpiredCerts: true"
+      ],
+      "correct_answer": "C",
+      "explanation": "The reenrollignorecertexpiry parameter must be set to true in the CA configuration to allow renewal of expired certificates."
+    },
+    {
+      "question": "What is the default validity period for Client Certificates using Hyperledger Fabric CA default settings?",
+      "options": ["A) 6 months", "B) 1 year", "C) 2 years", "D) 5 years"],
+      "correct_answer": "B",
+      "explanation": "Client Certificates expire after one year using the Hyperledger Fabric CA default settings."
+    },
+    {
+      "question": "Which fabric-ca-client command is used to view the users table in the CA database?",
+      "options": [
+        "A) fabric-ca-client user list",
+        "B) fabric-ca-client identity list",
+        "C) fabric-ca-client query users",
+        "D) fabric-ca-client show identities"
+      ],
+      "correct_answer": "B",
+      "explanation": "The fabric-ca-client identity list command is used to view the users table in the CA database."
+    },
+    {
+      "question": "What is the default database file name used by fabric-ca-server when using SQLite?",
+      "options": [
+        "A) fabric-ca.db",
+        "B) fabric-ca-server.db",
+        "C) ca-database.db",
+        "D) hyperledger-ca.db"
+      ],
+      "correct_answer": "B",
+      "explanation": "By default, the fabric-ca-server uses SQLite with the database file named fabric-ca-server.db in the home directory."
+    },
+
+    {
+      "question": "Which peer lifecycle chaincode subcommand is used to check if a chaincode definition is ready to be committed?",
+      "options": [
+        "A) peer lifecycle chaincode querycommitted",
+        "B) peer lifecycle chaincode checkcommitreadiness",
+        "C) peer lifecycle chaincode queryapproved",
+        "D) peer lifecycle chaincode queryinstalled"
+      ],
+      "correct_answer": "B",
+      "explanation": "The peer lifecycle chaincode checkcommitreadiness command checks if a chaincode definition is ready to be committed to a channel."
+    },
+    {
+      "question": "What does the configtxgen -printOrg command do?",
+      "options": [
+        "A) Prints all organizations in the network",
+        "B) Prints the definition of an organization as JSON",
+        "C) Prints organization certificates",
+        "D) Prints organization peer lists"
+      ],
+      "correct_answer": "B",
+      "explanation": "The configtxgen -printOrg command prints the definition of an organization as JSON, useful for adding an org to a channel manually."
+    },
+    {
+      "question": "Which osnadmin command is used to join an orderer to a channel in Fabric v2.3+?",
+      "options": [
+        "A) osnadmin channel create",
+        "B) osnadmin channel join",
+        "C) osnadmin channel add",
+        "D) osnadmin channel connect"
+      ],
+      "correct_answer": "B",
+      "explanation": "The osnadmin channel join command is used to join an Ordering Service Node (OSN) to a channel."
+    },
+    {
+      "question": "What is the purpose of the cryptogen tool in Hyperledger Fabric?",
+      "options": [
+        "A) To generate chaincode packages",
+        "B) To create channel configuration transactions",
+        "C) To generate cryptographic material (certificates and keys)",
+        "D) To encrypt transaction data"
+      ],
+      "correct_answer": "C",
+      "explanation": "The cryptogen tool is used to generate cryptographic material including certificates and keys for organizations and their components."
+    },
+    {
+      "question": "Which peer channel command is used to fetch a specific block from a channel?",
+      "options": [
+        "A) peer channel get",
+        "B) peer channel fetch",
+        "C) peer channel retrieve",
+        "D) peer channel download"
+      ],
+      "correct_answer": "B",
+      "explanation": "The peer channel fetch command is used to fetch a block from a channel. You can specify block numbers or use 'config' for the latest config block."
+    },
+    {
+      "question": "What is the execute-order-validate architecture in Hyperledger Fabric?",
+      "options": [
+        "A) Transactions are ordered first, then executed and validated",
+        "B) Transactions are executed first, then ordered, then validated",
+        "C) Transactions are validated first, then executed and ordered",
+        "D) All three phases happen simultaneously"
+      ],
+      "correct_answer": "B",
+      "explanation": "Hyperledger Fabric uses the execute-order-validate architecture where transactions are first executed (endorsed) by peers, then ordered by the ordering service, and finally validated before being committed to the ledger."
+    },
+    {
+      "question": "In Hyperledger Fabric, what is the role of endorsing peers?",
+      "options": [
+        "A) They order transactions into blocks",
+        "B) They execute chaincode and sign transaction proposals",
+        "C) They store the blockchain data",
+        "D) They manage user identities"
+      ],
+      "correct_answer": "B",
+      "explanation": "Endorsing peers execute chaincode against the ledger state and sign (endorse) the transaction proposal response with their digital signature."
+    },
+    {
+      "question": "What is a channel in Hyperledger Fabric?",
+      "options": [
+        "A) A communication protocol between peers",
+        "B) A private subnet of communication between specific network members",
+        "C) A storage mechanism for chaincode",
+        "D) A consensus algorithm"
+      ],
+      "correct_answer": "B",
+      "explanation": "A channel in Hyperledger Fabric is a private subnet of communication between specific network members, providing data isolation and confidentiality."
+    },
+    {
+      "question": "What happens when a peer receives a block during the validation phase?",
+      "options": [
+        "A) It immediately commits the block to the ledger",
+        "B) It validates endorsements and checks for conflicts before committing",
+        "C) It forwards the block to other peers",
+        "D) It executes the transactions in the block"
+      ],
+      "correct_answer": "B",
+      "explanation": "During validation, peers check endorsement policies, validate signatures, and perform MVCC (Multi-Version Concurrency Control) checks before committing valid transactions to the ledger."
+    },
+    {
+      "question": "What is the role of the ordering service in Hyperledger Fabric?",
+      "options": [
+        "A) To execute smart contracts",
+        "B) To validate transactions",
+        "C) To order transactions into blocks and distribute them to peers",
+        "D) To store the world state"
+      ],
+      "correct_answer": "C",
+      "explanation": "The ordering service is responsible for ordering transactions into blocks and distributing these blocks to all peers in the network."
+    },
+    {
+      "question": "What is the required format for chaincode packages in Fabric 2.0+ lifecycle?",
+      "options": [
+        "A) .zip file with source code and metadata",
+        "B) .tar.gz file with metadata.json and code.tar.gz",
+        "C) .jar file for Java chaincode",
+        "D) .docker file with containerized code"
+      ],
+      "correct_answer": "B",
+      "explanation": "Chaincode packages in Fabric 2.0+ must be in .tar.gz format containing metadata.json and code.tar.gz files."
+    },
+    {
+      "question": "What is the purpose of the sequence number in chaincode lifecycle?",
+      "options": [
+        "A) To identify the chaincode version",
+        "B) To track chaincode upgrades and definition changes",
+        "C) To set execution order",
+        "D) To determine endorsement requirements"
+      ],
+      "correct_answer": "B",
+      "explanation": "The sequence number tracks upgrades and changes to the chaincode definition. It must be incremented for each change to the chaincode definition."
+    },
+    {
+      "question": "Which chaincode language shows the best performance in Hyperledger Fabric?",
+      "options": ["A) Java", "B) Node.js", "C) Go", "D) Python"],
+      "correct_answer": "C",
+      "explanation": "Go chaincode has shown the best performance in Hyperledger Fabric, followed by Node.js, then Java. Python is not officially supported."
+    },
+    {
+      "question": "How would a developer test chaincode iteratively without the full lifecycle process?",
+      "options": [
+        "A) Deploy to production network",
+        "B) Run chaincode in development mode",
+        "C) Use a test blockchain",
+        "D) Manual code updates on peers"
+      ],
+      "correct_answer": "B",
+      "explanation": "Running chaincode in development mode allows developers to test and debug without the overhead of packaging, installing, approving, and committing for each update."
+    },
+    {
+      "question": "What happens when delState('A') function is committed in a transaction?",
+      "options": [
+        "A) The key 'A' is completely removed from all records",
+        "B) The key 'A' is set to null value",
+        "C) The state of key 'A' is removed from state database but history remains in ledger",
+        "D) All transaction history for key 'A' is deleted"
+      ],
+      "correct_answer": "C",
+      "explanation": "When delState('A') is committed, the current state of key 'A' is removed from the state database, but the transaction history remains in the immutable ledger."
+    },
+    {
+      "question": "What is the default SendBufferSize value for orderer nodes in Hyperledger Fabric v2.5?",
+      "options": ["A) 10", "B) 50", "C) 100", "D) 500"],
+      "correct_answer": "C",
+      "explanation": "In Fabric v2.5, the default SendBufferSize was changed from 10 to 100 to improve throughput."
+    },
+    {
+      "question": "What is the maximum recommended size for AbsoluteMaxBytes in block cutting parameters?",
+      "options": ["A) 10 MB", "B) 25 MB", "C) 49 MB", "D) 100 MB"],
+      "correct_answer": "C",
+      "explanation": "The maximum recommended size is 49 MB, based on the headroom needed for the default grpc max message size of 100 MB."
+    },
+    {
+      "question": "What is the minimum recommended network connectivity speed between Fabric nodes?",
+      "options": ["A) 100 Mbps", "B) 500 Mbps", "C) 1 Gbps", "D) 10 Gbps"],
+      "correct_answer": "C",
+      "explanation": "A minimum of 1 Gbps should be deployed between all nodes and organizations for optimal performance."
+    },
+    {
+      "question": "What is the default BatchTimeout value in orderer configuration?",
+      "options": [
+        "A) 1 second",
+        "B) 2 seconds",
+        "C) 5 seconds",
+        "D) 10 seconds"
+      ],
+      "correct_answer": "B",
+      "explanation": "The default BatchTimeout value is 2 seconds, which determines how long to wait before cutting a block."
+    },
+    {
+      "question": "What is the default MaxMessageCount value in block cutting parameters?",
+      "options": ["A) 100", "B) 250", "C) 500", "D) 1000"],
+      "correct_answer": "C",
+      "explanation": "The default MaxMessageCount is 500, which sets the maximum number of transactions in a single block."
+    },
+    {
+      "question": "In a Byzantine Fault Tolerant consensus protocol, what is the minimum number of nodes required to tolerate F faulty nodes?",
+      "options": ["A) F + 1", "B) 2F + 1", "C) 3F + 1", "D) 4F + 1"],
+      "correct_answer": "C",
+      "explanation": "Byzantine Fault Tolerance requires 3F + 1 nodes to tolerate F Byzantine (malicious) failures."
+    },
+    {
+      "question": "For a Raft cluster with 5 orderer nodes, how many nodes must be available for the service to function?",
+      "options": ["A) 2", "B) 3", "C) 4", "D) 5"],
+      "correct_answer": "B",
+      "explanation": "Raft requires a majority (N/2 + 1) to function. For 5 nodes, at least 3 nodes must be available."
+    },
+    {
+      "question": "How many orderer nodes are adequate for a test Ordering Service?",
+      "options": [
+        "A) No set requirement",
+        "B) Three ordering nodes minimum",
+        "C) One ordering node is sufficient",
+        "D) Ordering nodes are optional"
+      ],
+      "correct_answer": "C",
+      "explanation": "For a test network, one ordering node is sufficient. Production networks should use multiple nodes for fault tolerance."
+    },
+    {
+      "question": "Which consensus mechanism was deprecated in favor of Raft in Hyperledger Fabric?",
+      "options": ["A) PBFT", "B) Kafka", "C) Solo", "D) Istanbul BFT"],
+      "correct_answer": "B",
+      "explanation": "Kafka-based ordering was deprecated in favor of Raft consensus, which provides better crash fault tolerance and doesn't require a separate Kafka cluster."
+    },
+    {
+      "question": "What type of consensus does Hyperledger Fabric's Raft implementation provide?",
+      "options": [
+        "A) Byzantine Fault Tolerance (BFT)",
+        "B) Crash Fault Tolerance (CFT)",
+        "C) Practical Byzantine Fault Tolerance (pBFT)",
+        "D) Proof of Work (PoW)"
+      ],
+      "correct_answer": "B",
+      "explanation": "Fabric's Raft implementation provides Crash Fault Tolerance (CFT), which can handle node crashes but not malicious/Byzantine behavior."
+    },
+    {
+      "question": "Which parameter in a private data collection configuration determines data retention period?",
+      "options": [
+        "A) timeToLive",
+        "B) blockToLive",
+        "C) dataRetention",
+        "D) purgeAfter"
+      ],
+      "correct_answer": "B",
+      "explanation": "The blockToLive parameter specifies how many blocks the private data should be stored before being purged."
+    },
+    {
+      "question": "What does blockToLive set to 0 mean in private data collection configuration?",
+      "options": [
+        "A) Data is purged immediately",
+        "B) Data is purged after block 0",
+        "C) Data is never purged and kept indefinitely",
+        "D) Data is purged after 10 blocks by default"
+      ],
+      "correct_answer": "C",
+      "explanation": "Setting blockToLive to 0 means private data will never be purged and kept indefinitely."
+    },
+    {
+      "question": "In private data collections, what is the purpose of requiredPeerCount?",
+      "options": [
+        "A) Maximum peers that can access the collection",
+        "B) Minimum peers required for endorsement",
+        "C) Minimum peers required for dissemination",
+        "D) Number of peers in the channel"
+      ],
+      "correct_answer": "C",
+      "explanation": "requiredPeerCount specifies the minimum number of peers (besides the endorsing peer) that must receive the private data."
+    },
+    {
+      "question": "What is stored on the channel ledger for private data transactions?",
+      "options": [
+        "A) The actual private data",
+        "B) An encrypted version of private data",
+        "C) A hash of the private data",
+        "D) A reference pointer to private data"
+      ],
+      "correct_answer": "C",
+      "explanation": "Only a hash of the private data is stored on the channel ledger, serving as evidence of the transaction while keeping the data private."
+    },
+    {
+      "question": "Which API should be used to completely remove private data from all peers?",
+      "options": [
+        "A) DelPrivateData",
+        "B) RemovePrivateData",
+        "C) PurgePrivateData",
+        "D) ClearPrivateData"
+      ],
+      "correct_answer": "C",
+      "explanation": "PurgePrivateData API completely removes private data from all peers, while DelPrivateData only removes from state database."
+    },
+    {
+      "question": "Which MSP roles are valid in Hyperledger Fabric endorsement policy syntax?",
+      "options": [
+        "A) member, admin, client, peer, validator",
+        "B) member, admin, client, peer",
+        "C) member, admin, peer, orderer",
+        "D) member, client, peer, validator"
+      ],
+      "correct_answer": "B",
+      "explanation": "The four accepted roles are: member, admin, client, and peer. 'Validator' is not a valid MSP role."
+    },
+    {
+      "question": "What is the default chaincode endorsement policy if none is specified?",
+      "options": [
+        "A) Channel/Application/Admins",
+        "B) Channel/Application/Endorsement",
+        "C) Channel/Application/LifecycleEndorsement",
+        "D) Channel/Application/Majority"
+      ],
+      "correct_answer": "B",
+      "explanation": "If no policy is specified, the chaincode definition uses the Channel/Application/Endorsement policy by default."
+    },
+    {
+      "question": "What does the endorsement policy OutOf(2, 'Org1.member', 'Org2.member', 'Org3.member') require?",
+      "options": [
+        "A) All three organizations must endorse",
+        "B) Any two out of the three organizations must endorse",
+        "C) Only Org1 and Org2 must endorse",
+        "D) At least one organization must endorse"
+      ],
+      "correct_answer": "B",
+      "explanation": "OutOf(2, ...) requires any 2 out of the 3 specified organizations to endorse the transaction."
+    },
+    {
+      "question": "What is the default LifecycleEndorsement policy for chaincode definition approval?",
+      "options": [
+        "A) Any organization can approve",
+        "B) Majority of organizations must approve",
+        "C) All organizations must approve",
+        "D) Super-majority (2/3) must approve"
+      ],
+      "correct_answer": "B",
+      "explanation": "The default LifecycleEndorsement policy requires a majority of channel members to approve a chaincode definition."
+    },
+    {
+      "question": "Which chaincode API is used to set key-level endorsement policies?",
+      "options": [
+        "A) SetEndorsementPolicy(key, policy)",
+        "B) SetStateValidationParameter(key, ep)",
+        "C) SetKeyPolicy(key, endorsers)",
+        "D) SetStateEndorsement(key, orgs)"
+      ],
+      "correct_answer": "B",
+      "explanation": "SetStateValidationParameter(key string, ep []byte) is the correct API for setting state-based (key-level) endorsement policies."
+    },
+    {
+      "question": "What command is used to create a channel configuration transaction?",
+      "options": [
+        "A) configtxgen -outputCreateChannelTx",
+        "B) peer channel create",
+        "C) configtxgen -channelCreateTx",
+        "D) osnadmin channel create"
+      ],
+      "correct_answer": "A",
+      "explanation": "The configtxgen -outputCreateChannelTx command creates a channel configuration transaction file."
+    },
+    {
+      "question": "Which tool is used to inspect the contents of a genesis block?",
+      "options": [
+        "A) configtxgen -inspectBlock",
+        "B) peer channel inspect",
+        "C) configtxlator decode",
+        "D) osnadmin channel inspect"
+      ],
+      "correct_answer": "A",
+      "explanation": "The configtxgen -inspectBlock command prints the contents of a genesis block as JSON."
+    },
+    {
+      "question": "What is required for peers to receive blocks from a channel?",
+      "options": [
+        "A) Installing chaincode on the peer",
+        "B) Calling the join channel API on each peer",
+        "C) Adding peer to endorsement policy",
+        "D) Configuring peer in configtx.yaml"
+      ],
+      "correct_answer": "B",
+      "explanation": "In order for peers to receive blocks from a channel, you need to call the 'join channel API' on each peer using peer channel join command."
+    },
+    {
+      "question": "In Fabric v2.3+, what feature allows channel creation without a system channel?",
+      "options": [
+        "A) Channel participation API using osnadmin CLI",
+        "B) Direct peer channel creation",
+        "C) Automated channel bootstrap",
+        "D) Configless channel deployment"
+      ],
+      "correct_answer": "A",
+      "explanation": "The osnadmin CLI with channel participation API allows creating channels without requiring a system channel starting from Fabric v2.3."
+    },
+    {
+      "question": "What information do signature policies provide when creating a network?",
+      "options": [
+        "A) Number of nodes in the network",
+        "B) Identity of specific users who must sign to satisfy policy",
+        "C) Private keys of network participants",
+        "D) Type of consensus algorithm used"
+      ],
+      "correct_answer": "B",
+      "explanation": "Signature policies specify the identities of specific users who must sign a transaction for it to be considered valid."
+    },
+    {
+      "question": "In which version was the Peer Gateway Service first introduced?",
+      "options": ["A) v2.2", "B) v2.3", "C) v2.4", "D) v2.5"],
+      "correct_answer": "C",
+      "explanation": "The Peer Gateway Service was first introduced in Hyperledger Fabric v2.4."
+    },
+    {
+      "question": "What is the default gatewayService concurrency limit?",
+      "options": ["A) 250", "B) 500", "C) 1000", "D) 2500"],
+      "correct_answer": "B",
+      "explanation": "The gatewayService has a default concurrency limit of 500 concurrent requests."
+    },
+    {
+      "question": "What is the primary advantage of using Peer Gateway Service over legacy SDKs?",
+      "options": [
+        "A) Better chaincode execution performance",
+        "B) Reduced client complexity and network connections",
+        "C) Enhanced security through certificate pinning",
+        "D) Support for more programming languages"
+      ],
+      "correct_answer": "B",
+      "explanation": "The Gateway Service reduces client complexity by handling endorsement collection and reduces the number of network connections needed."
+    },
+    {
+      "question": "What does the peer chaincode invoke command with --isInit flag do?",
+      "options": [
+        "A) Installs the chaincode",
+        "B) Calls the Init function to initialize chaincode",
+        "C) Invokes any chaincode function",
+        "D) Initializes the peer node"
+      ],
+      "correct_answer": "B",
+      "explanation": "The --isInit flag with peer chaincode invoke calls the Init function to initialize the chaincode."
+    },
+    {
+      "question": "Which smart contract communication is limited in inter-contract scenarios?",
+      "options": [
+        "A) Chaincode X calls GetState in Chaincode Y on same channel",
+        "B) Chaincode X calls PutState in Chaincode Y on same channel",
+        "C) Chaincode X calls GetState in Chaincode Y on different channel",
+        "D) Chaincode X calls PutState in Chaincode Y on different channel"
+      ],
+      "correct_answer": "D",
+      "explanation": "Writing data (PutState) to a chaincode on a different channel is restricted for security and isolation reasons."
+    },
+    {
+      "question": "Which state database provides better performance for high-throughput applications?",
+      "options": ["A) CouchDB", "B) LevelDB", "C) MongoDB", "D) PostgreSQL"],
+      "correct_answer": "B",
+      "explanation": "LevelDB performance is noticeably faster than CouchDB, sometimes by a factor of 2x for high-throughput applications."
+    },
+    {
+      "question": "What is the default CouchDB cache size for peer nodes?",
+      "options": ["A) 32 MB", "B) 64 MB", "C) 128 MB", "D) 256 MB"],
+      "correct_answer": "B",
+      "explanation": "The default CouchDB cache size is 64 MB, and it must be a multiple of 32 MB."
+    },
+    {
+      "question": "What is the default totalQueryLimit in a peer's core.yaml file?",
+      "options": ["A) 10,000", "B) 50,000", "C) 100,000", "D) 1,000,000"],
+      "correct_answer": "C",
+      "explanation": "The default totalQueryLimit is 100,000 records to avoid larger than expected result sets that could slow down a peer."
+    },
+    {
+      "question": "What happens to historic states in the Hyperledger Fabric ledger?",
+      "options": [
+        "A) They can be modified by administrators",
+        "B) They require admin role for access",
+        "C) They are immutable",
+        "D) They cannot be accessed by anyone"
+      ],
+      "correct_answer": "C",
+      "explanation": "Historic states in the Hyperledger Fabric ledger are immutable, meaning they cannot be altered after being committed."
+    },
+    {
+      "question": "When using CouchDB, what additional capability does it provide over LevelDB?",
+      "options": [
+        "A) Better performance",
+        "B) Rich queries using JSON query syntax",
+        "C) Lower resource usage",
+        "D) Built-in backup functionality"
+      ],
+      "correct_answer": "B",
+      "explanation": "CouchDB enables rich queries against chaincode data using JSON query syntax, while LevelDB only supports key-based queries."
+    },
+    {
+      "question": "What is the default listen address for the peer operations service?",
+      "options": [
+        "A) 127.0.0.1:8443",
+        "B) 127.0.0.1:9443",
+        "C) 0.0.0.0:8080",
+        "D) localhost:7051"
+      ],
+      "correct_answer": "B",
+      "explanation": "The default peer operations service listens on 127.0.0.1:9443, while orderer uses 127.0.0.1:8443."
+    },
+    {
+      "question": "Which metrics provider options are available for Fabric operations service?",
+      "options": [
+        "A) prometheus, statsd, or disabled",
+        "B) prometheus, grafana, or none",
+        "C) statsd, influxdb, or disabled",
+        "D) prometheus, elasticsearch, or off"
+      ],
+      "correct_answer": "A",
+      "explanation": "Fabric operations service supports prometheus, statsd, or disabled as metrics provider options."
+    },
+    {
+      "question": "What is the recommended CPU threshold before scaling up peer resources?",
+      "options": ["A) 50-60%", "B) 60-70%", "C) 70-80%", "D) 80-90%"],
+      "correct_answer": "C",
+      "explanation": "A threshold of 70-80% CPU usage is the general guideline for maximum workload before increasing resources."
+    },
+    {
+      "question": "Which environment variable configures the operations service listen address for peers?",
+      "options": [
+        "A) CORE_PEER_OPERATIONS_ADDRESS",
+        "B) CORE_OPERATIONS_LISTENADDRESS",
+        "C) CORE_PEER_LISTENADDRESS",
+        "D) FABRIC_OPERATIONS_ADDRESS"
+      ],
+      "correct_answer": "B",
+      "explanation": "CORE_OPERATIONS_LISTENADDRESS is used to configure the operations service listen address for peers."
+    },
+    {
+      "question": "What endpoints are typically available on the Fabric operations service?",
+      "options": [
+        "A) /status, /info, /config",
+        "B) /health, /metrics, /version",
+        "C) /healthz, /metrics, /logspec",
+        "D) /ping, /stats, /debug"
+      ],
+      "correct_answer": "C",
+      "explanation": "The Fabric operations service provides /healthz for health checks, /metrics for monitoring data, and /logspec for log level management."
+    },
+    {
+      "question": "What is the TLSHandshakeTimeShift parameter used for in orderer configuration?",
+      "options": [
+        "A) To adjust network latency compensation",
+        "B) To allow expired TLS certificates to form consensus temporarily",
+        "C) To synchronize orderer node clocks",
+        "D) To configure TLS handshake timeout values"
+      ],
+      "correct_answer": "B",
+      "explanation": "TLSHandshakeTimeShift allows orderers with expired TLS certificates to temporarily form consensus for certificate updates."
+    },
+    {
+      "question": "What is the purpose of ImplicitMeta policies in channel configuration?",
+      "options": [
+        "A) To define explicit signature requirements",
+        "B) To aggregate results from policies deeper in configuration hierarchy",
+        "C) To create automatic policy inheritance",
+        "D) To define default access control rules"
+      ],
+      "correct_answer": "B",
+      "explanation": "ImplicitMeta policies aggregate results from policies deeper in the configuration hierarchy, like 'majority of organization admin policies'."
+    },
+    {
+      "question": "What is the recommended general guideline for CPU and memory allocation to orderer nodes?",
+      "options": [
+        "A) 1 CPU with 1 GB Memory",
+        "B) 1 CPU with 2 GB Memory",
+        "C) 2 CPU with 2 GB Memory",
+        "D) 2 CPU with 4 GB Memory"
+      ],
+      "correct_answer": "B",
+      "explanation": "The general guideline for orderer nodes is 1 CPU with 2 GB of Memory for basic deployments."
+    },
+    {
+      "question": "What is the typical transaction size for a transaction with required endorsements?",
+      "options": ["A) 1-2 KB", "B) 3-4 KB", "C) 5-6 KB", "D) 7-8 KB"],
+      "correct_answer": "B",
+      "explanation": "A minimum transaction size is around 1 KB, and adding 1 KB per required endorsement results in typical transactions of 3-4 KB."
+    },
+    {
+      "question": "Which consensus mechanisms does Hyperledger Fabric's pluggable consensus support?",
+      "options": [
+        "A) Both Crash Fault Tolerant (CFT) and Byzantine Fault Tolerant (BFT)",
+        "B) Only Crash Fault Tolerant (CFT)",
+        "C) Only Byzantine Fault Tolerant (BFT)",
+        "D) Only Practical Byzantine Fault Tolerance (pBFT)"
+      ],
+      "correct_answer": "A",
+      "explanation": "Hyperledger Fabric's pluggable consensus architecture supports both CFT and BFT consensus mechanisms depending on deployment requirements."
+    }
+  ]
+}
