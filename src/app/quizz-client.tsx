@@ -79,7 +79,7 @@ export default function QuizClient({
 
           // Create a promise that resolves after 2 seconds
           const minimumLoadTime = new Promise((resolve) =>
-            setTimeout(resolve, 2000)
+            setTimeout(resolve, 1200)
           );
 
           // Wait for both shuffling and minimum load time
