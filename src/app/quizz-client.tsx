@@ -55,13 +55,14 @@ export default function QuizClient({
   title,
   initialQuestions,
 }: QuizClientProps) {
-  const [questions, setQuestions] = useState<Question[]>([]); // Initialize with empty array
+  const [questions, setQuestions] = useState<Question[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [showExplanation, setShowExplanation] = useState(false);
   const [hint, setHint] = useState<string | null>(null);
   const [score, setScore] = useState(0);
   const [quizCompleted, setQuizCompleted] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const [isHintLoading, startHintTransition] = useTransition();
   const [isGeneratingQuestions, startNewQuestionsTransition] = useTransition();
@@ -69,11 +70,40 @@ export default function QuizClient({
 
   const { toast } = useToast();
 
-  // Effect to shuffle questions on component mount
+  // Effect to shuffle questions on component mount and ensure minimum loading time
   useEffect(() => {
-    if (initialQuestions && initialQuestions.length > 0) {
-      setQuestions(shuffle([...initialQuestions])); // Shuffle and set state
-    }
+    const loadData = async () => {
+      if (initialQuestions && initialQuestions.length > 0) {
+        try {
+          const shuffledQuestions = shuffle([...initialQuestions]); // Shuffle a copy
+
+          // Create a promise that resolves after 2 seconds
+          const minimumLoadTime = new Promise((resolve) =>
+            setTimeout(resolve, 2000)
+          );
+
+          // Wait for both shuffling and minimum load time
+          await Promise.all([
+            Promise.resolve(setQuestions(shuffledQuestions)), // Wrap state update in a resolved promise
+            minimumLoadTime,
+          ]);
+
+          setIsLoading(false); // Set loading to false after both are complete
+        } catch (e) {
+          console.error('Error shuffling questions:', e);
+          setIsLoading(false); // Set loading to false even if there's an error
+          // You might want to set an error state here to display an error message
+        }
+      } else {
+        // If no initial questions, still wait for 2 seconds before showing "No data"
+        setTimeout(() => {
+          setIsLoading(false);
+          // You might want to set an error state here as well
+        }, 1200);
+      }
+    };
+
+    loadData();
   }, [initialQuestions]); // Dependency array includes initialQuestions
 
   const currentQuestion = questions[currentQuestionIndex];
@@ -183,11 +213,42 @@ export default function QuizClient({
     return 'bg-muted/50 text-muted-foreground cursor-not-allowed border-border';
   };
 
-  // --- Error and Loading Handling ---
+  // --- Loading State ---
+  if (isLoading) {
+    return (
+      <main className='flex min-h-screen flex-col items-center justify-center bg-background p-8'>
+        <Card className='w-full max-w-2xl'>
+          <CardHeader>
+            <CardTitle>Loading Quiz...</CardTitle>
+          </CardHeader>
+          <CardContent className='flex justify-center items-center'>
+            <Loader2 className='h-8 w-8 animate-spin' /> {/* Spinner */}
+          </CardContent>
+        </Card>
+      </main>
+    );
+  }
 
-  // You can add loading state here if needed, perhaps based on initialQuestions being null or empty initially
+  // --- Error Handling ---
+  if (!initialQuestions || initialQuestions.length === 0) {
+    return (
+      <main className='flex min-h-screen flex-col items-center justify-center bg-background p-8'>
+        <Card className='w-full max-w-2xl'>
+          <CardHeader>
+            <CardTitle>Error Loading Quiz</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p>
+              No quiz data was provided. Please check the source of the quiz
+              data.
+            </p>
+          </CardContent>
+        </Card>
+      </main>
+    );
+  }
 
-  if (!questions || questions.length === 0) {
+  if (questions.length === 0) {
     return (
       <main className='flex min-h-screen flex-col items-center justify-center bg-background p-8'>
         <Card className='w-full max-w-2xl'>
@@ -196,8 +257,8 @@ export default function QuizClient({
           </CardHeader>
           <CardContent>
             <p>
-              The quiz data could not be loaded or is empty. Please check the
-              data source.
+              The quiz data could not be loaded or is empty after shuffling.
+              Please check the data source and shuffling logic.
             </p>
           </CardContent>
         </Card>
