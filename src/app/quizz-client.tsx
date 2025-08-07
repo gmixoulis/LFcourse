@@ -382,7 +382,15 @@ export default function QuizClient({
                   {isCorrect ? 'Correct!' : 'Incorrect.'}
                 </AlertTitle>
                 <AlertDescription className='pt-1'>
-                  {currentQuestion.explanation + " " + "Reference: "+ currentQuestion.documentation_url}
+                    {currentQuestion.explanation + " Reference: "}
+                          <a 
+                            href={currentQuestion.documentation_url} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            style={{ color: 'blue', textDecoration: 'underline' }}
+                          >
+                            Documentation Link
+                          </a>
                 </AlertDescription>
               </Alert>
             )}
