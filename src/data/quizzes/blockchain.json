@@ -2970,6 +2970,253 @@
       "correct_answer": "B",
       "explanation": "The maximum recommended AbsoluteMaxBytes is 49 MB, based on the need for headroom under the default gRPC max message size of 100 MB to account for additional metadata and envelope overhead.",
       "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/orderer/ordering_service.html"
+    },
+    {
+      "question": "What is the primary function of the Gossip protocol in Hyperledger Fabric?",
+      "options": [
+        "A) To validate and commit transactions to the ledger",
+        "B) To establish network of known peers and disseminate ledger/channel data",
+        "C) To manage user identities and access control",
+        "D) To order transactions into blocks"
+      ],
+      "correct_answer": "B",
+      "explanation": "The gossip protocol manages peer discovery, channel membership, and disseminates ledger and state information across the network in a scalable fashion.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/gossip.html",
+      "topic": "Network Communication"
+    },
+    {
+      "question": "What role do leader peers play in the Gossip protocol?",
+      "options": [
+        "A) They validate all transactions on the network",
+        "B) They pull blocks from the ordering service and initiate gossip dissemination",
+        "C) They manage the channel configuration",
+        "D) They endorse all chaincode transactions"
+      ],
+      "correct_answer": "B",
+      "explanation": "Leader peers pull blocks from the ordering service and optionally initiate distribution of newly arrived blocks across peers in their organization through gossip.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/gossip.html",
+      "topic": "Network Communication"
+    },
+    {
+      "question": "Which environment variable controls the leader election mechanism in Hyperledger Fabric?",
+      "options": [
+        "A) CORE_PEER_LEADER_ENABLED",
+        "B) CORE_PEER_GOSSIP_USELEADERELECTION",
+        "C) CORE_ORDERER_LEADER_ELECTION",
+        "D) FABRIC_LEADER_CONFIG"
+      ],
+      "correct_answer": "B",
+      "explanation": "CORE_PEER_GOSSIP_USELEADERELECTION controls whether dynamic leader election is enabled for a peer.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/gossip.html",
+      "topic": "Network Configuration"
+    },
+    {
+      "question": "What is the LifecycleEndorsement policy used for?",
+      "options": [
+        "A) To specify which organizations can endorse a transaction",
+        "B) To determine which peers must be online",
+        "C) To govern who needs to approve a chaincode definition",
+        "D) To control access to private data"
+      ],
+      "correct_answer": "C",
+      "explanation": "The LifecycleEndorsement policy specifies which organizations must approve a chaincode definition. By default, it requires a majority of channel members.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/endorsement-policies.html",
+      "topic": "Chaincode Governance"
+    },
+    {
+      "question": "In the chaincode lifecycle, what happens after organizations approve a chaincode definition?",
+      "options": [
+        "A) The chaincode is immediately deployed to all peers",
+        "B) One organization must commit the chaincode definition to the channel",
+        "C) The chaincode is installed on all orderers",
+        "D) All peers automatically execute the chaincode"
+      ],
+      "correct_answer": "B",
+      "explanation": "After enough organizations approve the chaincode definition to meet the LifecycleEndorsement policy, one organization must commit the chaincode definition to the channel.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/chaincode_lifecycle.html",
+      "topic": "Chaincode Lifecycle"
+    },
+    {
+      "question": "What is the channel participation API used for?",
+      "options": [
+        "A) To manage peer membership in a channel",
+        "B) To allow orderers to join or leave a channel without a system channel",
+        "C) To control access to channel data",
+        "D) To update channel policies dynamically"
+      ],
+      "correct_answer": "B",
+      "explanation": "The channel participation API (osnadmin CLI) allows ordering service nodes to join or leave channels dynamically without requiring a system channel, introduced in Fabric v2.3+.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/create_channel/create_channel_participation.html",
+      "topic": "Channel Management"
+    },
+    {
+      "question": "Which command creates a channel without using a system channel?",
+      "options": [
+        "A) peer channel create",
+        "B) configtxgen -outputChannelTx",
+        "C) osnadmin channel join",
+        "D) peer lifecycle channel create"
+      ],
+      "correct_answer": "C",
+      "explanation": "The osnadmin channel join command allows orderers to join channels directly, enabling channel creation without a system channel as per the channel participation API.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/create_channel/create_channel_participation.html",
+      "topic": "Channel Management"
+    },
+    {
+      "question": "What is the Service Discovery feature used for?",
+      "options": [
+        "A) To discover new peers joining the network",
+        "B) To help clients determine which peers are required to endorse transactions",
+        "C) To manage peer certificates",
+        "D) To order transactions in blocks"
+      ],
+      "correct_answer": "B",
+      "explanation": "Service Discovery helps client applications determine which peers are required to endorse a transaction based on endorsement policies and chaincode installation status.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/discovery/discovery-overview.html",
+      "topic": "Client Operations"
+    },
+    {
+      "question": "How does Service Discovery obtain peer information in Hyperledger Fabric?",
+      "options": [
+        "A) From a central registry",
+        "B) From the gossip protocol and peer state database",
+        "C) From the ordering service",
+        "D) From the MSP configuration files"
+      ],
+      "correct_answer": "B",
+      "explanation": "Service Discovery uses metadata maintained by the gossip communication layer and fetches endorsement policies from the peer's state database.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/discovery/discovery-overview.html",
+      "topic": "Client Operations"
+    },
+    {
+      "question": "What configuration parameter must be enabled for the channel participation API to work?",
+      "options": [
+        "A) Channel.ParticipationAPI",
+        "B) Admin.EnableChannelParticipation",
+        "C) Orderer.ChannelParticipation.Enabled",
+        "D) Fabric.ChannelAPI.Active"
+      ],
+      "correct_answer": "C",
+      "explanation": "Orderer.ChannelParticipation.Enabled must be set to true to enable the channel participation API functionality in the orderer.yaml configuration.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/orderer/ordering_service.html",
+      "topic": "Orderer Configuration"
+    },
+    {
+      "question": "What is the execute-order-validate (EOV) transaction flow in Hyperledger Fabric?",
+      "options": [
+        "A) First order, then execute, then validate",
+        "B) First execute, then order, then validate",
+        "C) First validate, then order, then execute",
+        "D) Execute, order, and validate happen simultaneously"
+      ],
+      "correct_answer": "B",
+      "explanation": "In the execute-order-validate architecture, transactions are first executed (endorsed) by peers, then ordered into blocks, and finally validated before commitment.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/txflow.html",
+      "topic": "Transaction Processing"
+    },
+    {
+      "question": "In Hyperledger Fabric, what is MVCC (Multi-Version Concurrency Control) conflict?",
+      "options": [
+        "A) When two peers have different versions of the ledger",
+        "B) When two transactions read and write the same key at the same time",
+        "C) When multiple organizations approve conflicting endorsement policies",
+        "D) When a transaction fails to be ordered"
+      ],
+      "correct_answer": "B",
+      "explanation": "MVCC conflicts occur when a transaction's read set version doesn't match the version in the ledger during validation, indicating the data was modified by another transaction.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/orderer/ordering_service.html",
+      "topic": "Transaction Validation"
+    },
+    {
+      "question": "Which phase of the transaction lifecycle detects MVCC conflicts?",
+      "options": [
+        "A) Endorsement phase",
+        "B) Ordering phase",
+        "C) Validation phase",
+        "D) Execution phase"
+      ],
+      "correct_answer": "C",
+      "explanation": "MVCC conflicts are detected during the validation phase when committing peers validate transactions before adding them to the ledger.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/txflow.html",
+      "topic": "Transaction Validation"
+    },
+    {
+      "question": "What happens to a transaction marked with MVCC conflict?",
+      "options": [
+        "A) It is automatically retried",
+        "B) It is marked as invalid and not committed to the ledger",
+        "C) It is re-endorsed by all peers",
+        "D) It is put in a queue for later processing"
+      ],
+      "correct_answer": "B",
+      "explanation": "Transactions with MVCC conflicts are marked as invalid (INVALID_ENDORSEMENT_POLICY) and not committed to the ledger.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/txflow.html",
+      "topic": "Transaction Validation"
+    },
+    {
+      "question": "What is an implicit meta policy in Hyperledger Fabric?",
+      "options": [
+        "A) A policy that is automatically generated by the ordering service",
+        "B) A policy that aggregates results from sub-policies based on a threshold",
+        "C) A policy that applies only to implicit members",
+        "D) A policy that cannot be modified after creation"
+      ],
+      "correct_answer": "B",
+      "explanation": "Implicit meta policies aggregate results from policies deeper in the configuration hierarchy, such as 'majority of admin policies' or 'any of member policies'.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/channels.html",
+      "topic": "Policy Configuration"
+    },
+    {
+      "question": "What is the default implicit meta policy for Channel/Application/LifecycleEndorsement?",
+      "options": [
+        "A) MAJORITY",
+        "B) ANY",
+        "C) ALL",
+        "D) THRESHOLD"
+      ],
+      "correct_answer": "A",
+      "explanation": "The default LifecycleEndorsement policy uses MAJORITY, requiring approval from a majority of channel members.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/endorsement-policies.html",
+      "topic": "Policy Configuration"
+    },
+    {
+      "question": "How can you modify the default LifecycleEndorsement policy?",
+      "options": [
+        "A) By updating core.yaml on all peers",
+        "B) By changing the configtx.yaml and committing a channel configuration update",
+        "C) By using the peer lifecycle command",
+        "D) It cannot be modified after channel creation"
+      ],
+      "correct_answer": "B",
+      "explanation": "The default LifecycleEndorsement policy is defined in configtx.yaml and can be changed through channel configuration updates.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/endorsement-policies.html",
+      "topic": "Policy Configuration"
+    },
+    {
+      "question": "What is the difference between a follower and a member in channel participation?",
+      "options": [
+        "A) Followers only read from the channel, members can write",
+        "B) Members pull blocks directly, followers rely on gossip",
+        "C) Followers pull blocks until caught up, members execute consensus",
+        "D) Members must be orderers, followers can be any node"
+      ],
+      "correct_answer": "C",
+      "explanation": "When an orderer joins as a follower, it pulls blocks until caught up. When added to the consenters set, it transitions to being a member that executes consensus.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/create_channel/create_channel_participation.html",
+      "topic": "Channel Participation"
+    },
+    {
+      "question": "What information must be provided to use the osnadmin command with an orderer?",
+      "options": [
+        "A) Only the channel ID",
+        "B) Channel ID, orderer address, and TLS credentials",
+        "C) Only the orderer address",
+        "D) Orderer address and channel configuration"
+      ],
+      "correct_answer": "B",
+      "explanation": "osnadmin requires the orderer admin listen address, TLS CA certificate, client certificate, and client key to communicate with the orderer.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/create_channel/create_channel_participation.html",
+      "topic": "Orderer Administration"
     }
   ]
 }
