@@ -3217,6 +3217,435 @@
       "explanation": "osnadmin requires the orderer admin listen address, TLS CA certificate, client certificate, and client key to communicate with the orderer.",
       "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/create_channel/create_channel_participation.html",
       "topic": "Orderer Administration"
+    },
+    {
+      "question": "Which command is used to request a ledger snapshot at a specific block height in Hyperledger Fabric?",
+      "options": [
+        "A) peer snapshot request --channel mychannel --blockHeight 1000",
+        "B) peer snapshot submitrequest --channel mychannel --blockHeight 1000",
+        "C) peer snapshot create --channel mychannel --height 1000",
+        "D) peer ledger snapshot --channel mychannel --block 1000"
+      ],
+      "correct_answer": "B",
+      "explanation": "The peer snapshot submitrequest command is used to submit a ledger snapshot request for a specific channel at a given block height.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/channels.html",
+      "topic": "Peer Snapshot Commands"
+    },
+    {
+      "question": "What does the 'peer snapshot querystatus' command do?",
+      "options": [
+        "A) Lists all available snapshots on the peer",
+        "B) Queries the status of ongoing snapshot operations",
+        "C) Checks if a specific snapshot exists",
+        "D) Returns the current block height"
+      ],
+      "correct_answer": "B",
+      "explanation": "The peer snapshot querystatus command allows you to check the status of ongoing snapshot operations on a peer.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/channels.html",
+      "topic": "Peer Snapshot Commands"
+    },
+    {
+      "question": "Which command cancels an ongoing snapshot request in Hyperledger Fabric?",
+      "options": [
+        "A) peer snapshot stop --channel mychannel",
+        "B) peer snapshot delete --channel mychannel",
+        "C) peer snapshot cancelrequest --channel mychannel",
+        "D) peer snapshot abort --channel mychannel"
+      ],
+      "correct_answer": "C",
+      "explanation": "The peer snapshot cancelrequest command is used to cancel an ongoing snapshot request for a specific channel.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/channels.html",
+      "topic": "Peer Snapshot Commands"
+    },
+    {
+      "question": "Which command is used to get the current logging level for a peer?",
+      "options": [
+        "A) peer logging level",
+        "B) peer logging getlevel",
+        "C) peer logging show",
+        "D) peer logging status"
+      ],
+      "correct_answer": "B",
+      "explanation": "The peer logging getlevel command retrieves the current logging level configuration for the peer.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/key_concepts.html",
+      "topic": "Peer Logging Commands"
+    },
+    {
+      "question": "How would you change the logging level to DEBUG for a specific module in Hyperledger Fabric?",
+      "options": [
+        "A) peer logging debug modulename",
+        "B) peer logging setlevel modulename DEBUG",
+        "C) peer logging level modulename=DEBUG",
+        "D) peer logging config modulename DEBUG"
+      ],
+      "correct_answer": "B",
+      "explanation": "The peer logging setlevel command allows you to set the logging level for specific modules, for example: peer logging setlevel peer DEBUG",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/key_concepts.html",
+      "topic": "Peer Logging Commands"
+    },
+    {
+      "question": "What does the 'peer logging revertlevels' command do?",
+      "options": [
+        "A) Changes all logging levels to DEBUG",
+        "B) Resets logging levels to their defaults",
+        "C) Reverses the last logging level change",
+        "D) Disables all logging"
+      ],
+      "correct_answer": "B",
+      "explanation": "The peer logging revertlevels command resets all logging levels to their default configuration.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/key_concepts.html",
+      "topic": "Peer Logging Commands"
+    },
+    {
+      "question": "Which peer chaincode command is used to list all installed chaincodes on a peer?",
+      "options": [
+        "A) peer chaincode list",
+        "B) peer chaincode query",
+        "C) peer lifecycle chaincode queryinstalled",
+        "D) peer chaincode show"
+      ],
+      "correct_answer": "C",
+      "explanation": "In Fabric 2.x, the peer lifecycle chaincode queryinstalled command lists all installed chaincodes on a peer.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/commands/peerlifecycle.html",
+      "topic": "Peer Chaincode Commands"
+    },
+    {
+      "question": "What is the primary use of 'peer chaincode invoke' command?",
+      "options": [
+        "A) To query the ledger without modifying state",
+        "B) To install chaincode on peers",
+        "C) To call a chaincode function that modifies the ledger state",
+        "D) To check if chaincode is endorsed"
+      ],
+      "correct_answer": "C",
+      "explanation": "peer chaincode invoke is used to call chaincode functions that will modify the world state and require endorsement.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/chaincode.html",
+      "topic": "Peer Chaincode Commands"
+    },
+    {
+      "question": "Which flag is required when using 'peer chaincode invoke' to specify the channel?",
+      "options": [
+        "A) --channel",
+        "B) -c",
+        "C) --channelID",
+        "D) All of the above"
+      ],
+      "correct_answer": "D",
+      "explanation": "The channel can be specified using --channel, -c, or --channelID flags interchangeably in peer commands.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/chaincode.html",
+      "topic": "Peer Chaincode Commands"
+    },
+    {
+      "question": "Which peer channel command is used to retrieve a genesis block from the ordering service?",
+      "options": [
+        "A) peer channel getblock",
+        "B) peer channel fetchgenesis",
+        "C) peer channel fetch 0",
+        "D) peer channel download genesis"
+      ],
+      "correct_answer": "C",
+      "explanation": "The peer channel fetch 0 command retrieves the genesis block (block 0) from the ordering service for a channel.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/channels.html",
+      "topic": "Peer Channel Commands"
+    },
+    {
+      "question": "What does the 'peer channel joinbysnapshot' command do?",
+      "options": [
+        "A) Joins a peer to a channel using a ledger snapshot",
+        "B) Creates a snapshot and joins the peer",
+        "C) Updates peer snapshot configuration",
+        "D) Downloads a snapshot from another peer"
+      ],
+      "correct_answer": "A",
+      "explanation": "peer channel joinbysnapshot allows a peer to join a channel starting from a ledger snapshot at a specific block height, avoiding the need to process all historical blocks.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/channels.html",
+      "topic": "Peer Channel Commands"
+    },
+    {
+      "question": "Which command checks the status of an ongoing 'joinbysnapshot' operation?",
+      "options": [
+        "A) peer channel snapshotstatus",
+        "B) peer channel joinbysnapshotstatus",
+        "C) peer snapshot status",
+        "D) peer channel status"
+      ],
+      "correct_answer": "B",
+      "explanation": "The peer channel joinbysnapshotstatus command queries whether a joinbysnapshot operation is currently running for any channel on the peer.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/channels.html",
+      "topic": "Peer Channel Commands"
+    },
+    {
+      "question": "Which configtxgen command option outputs a genesis block for orderer initialization?",
+      "options": [
+        "A) -outputGenesisBlock",
+        "B) -outputOrdererGenesis",
+        "C) -generateGenesis",
+        "D) -createGenesisBlock"
+      ],
+      "correct_answer": "A",
+      "explanation": "The -outputGenesisBlock flag tells configtxgen to output a genesis block file for initializing the ordering service.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/channels.html",
+      "topic": "Configtxgen Commands"
+    },
+    {
+      "question": "What does 'configtxgen -inspectBlock' command do?",
+      "options": [
+        "A) Validates the syntax of a block file",
+        "B) Prints the contents of a block as JSON for inspection",
+        "C) Compares two block files",
+        "D) Repairs a corrupted block"
+      ],
+      "correct_answer": "B",
+      "explanation": "The configtxgen -inspectBlock option prints the contents of a given block as JSON, useful for debugging and inspection.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/channels.html",
+      "topic": "Configtxgen Commands"
+    },
+    {
+      "question": "What is the purpose of the 'osnadmin channel remove' command?",
+      "options": [
+        "A) Removes all orderers from a channel",
+        "B) Removes an Ordering Service Node from a channel",
+        "C) Deletes a channel permanently",
+        "D) Removes channel configuration"
+      ],
+      "correct_answer": "B",
+      "explanation": "The osnadmin channel remove command removes an Ordering Service Node from a specific channel.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/create_channel/create_channel_participation.html",
+      "topic": "Osnadmin Channel Commands"
+    },
+    {
+      "question": "Which information can be retrieved using 'osnadmin channel list --channelID mychannel'?",
+      "options": [
+        "A) List of all peers in the channel",
+        "B) Detailed information about a specific channel",
+        "C) List of chaincode installed on the channel",
+        "D) Transaction history for the channel"
+      ],
+      "correct_answer": "B",
+      "explanation": "Using the --channelID flag with osnadmin channel list provides detailed information about that specific channel including consensus relation and status.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/create_channel/create_channel_participation.html",
+      "topic": "Osnadmin Channel Commands"
+    },
+    {
+      "question": "What is the primary purpose of 'configtxlator decode' command?",
+      "options": [
+        "A) Converts a protobuf configuration block to JSON format",
+        "B) Decrypts encrypted channel configuration",
+        "C) Validates the syntax of configuration files",
+        "D) Compares two configuration blocks"
+      ],
+      "correct_answer": "A",
+      "explanation": "The configtxlator decode command converts protobuf-encoded blocks or configuration into human-readable JSON format.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/channels.html",
+      "topic": "Configtxlator Commands"
+    },
+    {
+      "question": "What does 'configtxlator encode' do?",
+      "options": [
+        "A) Compresses a configuration file",
+        "B) Converts JSON configuration back into protobuf format",
+        "C) Encrypts the configuration block",
+        "D) Validates configuration syntax"
+      ],
+      "correct_answer": "B",
+      "explanation": "The configtxlator encode command converts JSON configuration data back into protobuf binary format for use in transactions.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/channels.html",
+      "topic": "Configtxlator Commands"
+    },
+    {
+      "question": "Which cryptogen command generates cryptographic material for the network?",
+      "options": [
+        "A) cryptogen create",
+        "B) cryptogen generate",
+        "C) cryptogen init",
+        "D) cryptogen setup"
+      ],
+      "correct_answer": "B",
+      "explanation": "The cryptogen generate command creates certificates and keys for all organizations and nodes defined in crypto-config.yaml.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/security_model.html",
+      "topic": "Cryptogen Commands"
+    },
+    {
+      "question": "What does 'cryptogen show' command display?",
+      "options": [
+        "A) Displays the crypto-config.yaml file contents",
+        "B) Shows all generated certificates",
+        "C) Displays the structure of generated cryptographic materials",
+        "D) Shows the root CA certificate"
+      ],
+      "correct_answer": "C",
+      "explanation": "The cryptogen show command displays the directory structure and organization of the generated cryptographic material.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/key_concepts.html",
+      "topic": "Cryptogen Commands"
+    },
+    {
+      "question": "Which fabric-ca-client command registers a new user with the CA?",
+      "options": [
+        "A) fabric-ca-client enroll",
+        "B) fabric-ca-client register",
+        "C) fabric-ca-client add-user",
+        "D) fabric-ca-client new"
+      ],
+      "correct_answer": "B",
+      "explanation": "The fabric-ca-client register command registers a new user identity with the Fabric CA server.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/commands/fabric-ca-commands.html",
+      "topic": "Fabric-CA Commands"
+    },
+    {
+      "question": "What is the difference between 'fabric-ca-client enroll' and 'fabric-ca-client reenroll'?",
+      "options": [
+        "A) Enroll creates new credentials, reenroll updates existing credentials",
+        "B) Reenroll deletes old credentials",
+        "C) Enroll is for admins, reenroll is for users",
+        "D) There is no difference"
+      ],
+      "correct_answer": "A",
+      "explanation": "Enroll obtains enrollment certificate and key for an already registered identity, while reenroll renews certificates for an existing identity.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/commands/fabric-ca-commands.html",
+      "topic": "Fabric-CA Commands"
+    },
+    {
+      "question": "Which fabric-ca-client command revokes a user's certificate?",
+      "options": [
+        "A) fabric-ca-client delete",
+        "B) fabric-ca-client remove",
+        "C) fabric-ca-client revoke",
+        "D) fabric-ca-client disable"
+      ],
+      "correct_answer": "C",
+      "explanation": "The fabric-ca-client revoke command revokes a user's certificate, removing their ability to use network credentials.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/commands/fabric-ca-commands.html",
+      "topic": "Fabric-CA Commands"
+    },
+    {
+      "question": "What does 'fabric-ca-client identity remove' do?",
+      "options": [
+        "A) Removes a user from the network",
+        "B) Deletes an identity from the CA database",
+        "C) Revokes all certificates for an identity",
+        "D) Disables an identity temporarily"
+      ],
+      "correct_answer": "B",
+      "explanation": "The fabric-ca-client identity remove command deletes an identity completely from the Fabric CA database.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/commands/fabric-ca-commands.html",
+      "topic": "Fabric-CA Commands"
+    },
+    {
+      "question": "What is the sequence field in a chaincode definition used for?",
+      "options": [
+        "A) To set the order of execution",
+        "B) To track chaincode upgrades and definition changes",
+        "C) To define the sequence of endorsements",
+        "D) To set transaction ordering priority"
+      ],
+      "correct_answer": "B",
+      "explanation": "The sequence field tracks chaincode definition changes. It must be incremented for every update to the definition.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/chaincode_lifecycle.html",
+      "topic": "Peer Lifecycle Chaincode Commands"
+    },
+    {
+      "question": "What does 'peer lifecycle chaincode querycommitted' command return?",
+      "options": [
+        "A) All installed chaincodes",
+        "B) Chaincodes approved but not yet committed",
+        "C) Chaincodes that have been committed to the channel",
+        "D) Chaincodes awaiting approval"
+      ],
+      "correct_answer": "C",
+      "explanation": "The peer lifecycle chaincode querycommitted command returns information about chaincodes that have been committed to a channel.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/commands/peerlifecycle.html",
+      "topic": "Peer Lifecycle Chaincode Commands"
+    },
+    {
+      "question": "What command starts a peer node in Hyperledger Fabric?",
+      "options": [
+        "A) peer start",
+        "B) peer node start",
+        "C) peer launch",
+        "D) peer begin"
+      ],
+      "correct_answer": "B",
+      "explanation": "The peer node start command launches a peer process with its configured settings.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/key_concepts.html",
+      "topic": "Peer Node Commands"
+    },
+    {
+      "question": "Which environment variable must be set before using configtxgen to generate channel artifacts?",
+      "options": [
+        "A) FABRIC_PATH",
+        "B) FABRIC_CFG_PATH",
+        "C) CONFIG_PATH",
+        "D) CHANNEL_CONFIG"
+      ],
+      "correct_answer": "B",
+      "explanation": "FABRIC_CFG_PATH must be set to the directory containing configtx.yaml for configtxgen to function properly.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/channels.html",
+      "topic": "Configuration Commands"
+    },
+    {
+      "question": "What is the correct format for the package ID when installing a chaincode?",
+      "options": [
+        "A) chaincodeLabel:v1.0",
+        "B) Package-ID-as-returned-by-calculatepackageid",
+        "C) Label@hash",
+        "D) chaincode_label_version"
+      ],
+      "correct_answer": "B",
+      "explanation": "The package ID is generated by peer lifecycle chaincode calculatepackageid and has a format like label@hash (SHA256 hash).",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/commands/peerlifecycle.html",
+      "topic": "Chaincode Packaging"
+    },
+    {
+      "question": "Which peer chaincode command signs a chaincode package without installing it?",
+      "options": [
+        "A) peer chaincode sign",
+        "B) peer chaincode signpackage",
+        "C) peer lifecycle chaincode sign",
+        "D) peer package sign"
+      ],
+      "correct_answer": "B",
+      "explanation": "The peer chaincode signpackage command signs a packaged chaincode for approvals without requiring installation.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/chaincode.html",
+      "topic": "Peer Chaincode Commands"
+    },
+    {
+      "question": "What information does 'peer channel getinfo' provide about a channel?",
+      "options": [
+        "A) Channel configuration and member list",
+        "B) Current block height and latest block hash",
+        "C) Installed chaincodes on the channel",
+        "D) Channel creation date and administrators"
+      ],
+      "correct_answer": "B",
+      "explanation": "The peer channel getinfo command provides blockchain information including the current block height and hash of the most recent block.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/channels.html",
+      "topic": "Peer Channel Commands"
+    },
+    {
+      "question": "Which command updates an existing channel configuration in Hyperledger Fabric?",
+      "options": [
+        "A) peer channel update -f config_update.tx",
+        "B) configtxgen -channelUpdate config_update.tx",
+        "C) osnadmin channel update",
+        "D) peer channel reconfigure"
+      ],
+      "correct_answer": "A",
+      "explanation": "The peer channel update command submits a configuration update transaction to modify an existing channel.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/channels.html",
+      "topic": "Peer Channel Commands"
+    },
+    {
+      "question": "What does the --isInit flag do when used with peer chaincode invoke?",
+      "options": [
+        "A) Runs a test initialization without committing",
+        "B) Invokes the chaincode Init function for initialization",
+        "C) Sets initial values for the chaincode",
+        "D) Indicates this is the first invocation"
+      ],
+      "correct_answer": "B",
+      "explanation": "The --isInit flag calls the Init function to initialize the chaincode instead of calling a regular function.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/chaincode.html",
+      "topic": "Peer Chaincode Commands"
     }
   ]
 }
