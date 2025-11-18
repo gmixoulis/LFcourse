@@ -3646,6 +3646,422 @@
       "explanation": "The --isInit flag calls the Init function to initialize the chaincode instead of calling a regular function.",
       "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/chaincode.html",
       "topic": "Peer Chaincode Commands"
+    },
+    {
+      "question": "What is the primary purpose of the 'ledgerutil compare' command in Hyperledger Fabric?",
+      "options": [
+        "A) To compare and encrypt two ledger snapshots",
+        "B) To compare channel snapshots from two different peers and identify divergence",
+        "C) To compare peer configurations",
+        "D) To compare organizational membership structures"
+      ],
+      "correct_answer": "B",
+      "explanation": "The ledgerutil compare command compares channel snapshots from two different peers. If divergence is detected, it outputs JSON files showing the differences to help with troubleshooting state database corruption issues.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/ledgerutil.html",
+      "topic": "Ledgerutil Commands"
+    },
+    {
+      "question": "What does 'ledgerutil identifytxs' command help identify?",
+      "options": [
+        "A) Identifies all transactions in a ledger",
+        "B) Identifies transactions that have written to a set of keys in a peer's block store",
+        "C) Identifies invalid transaction signatures",
+        "D) Identifies transactions awaiting commitment"
+      ],
+      "correct_answer": "B",
+      "explanation": "The ledgerutil identifytxs command identifies lists of transactions that have written to specific keys in a peer's local block store. It's useful when paired with ledgerutil compare to identify the transactions associated with divergent keys.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/ledgerutil.html",
+      "topic": "Ledgerutil Commands"
+    },
+    {
+      "question": "What is the purpose of 'ledgerutil verify' command?",
+      "options": [
+        "A) To verify peer identity certificates",
+        "B) To verify the integrity of ledgers in a peer's block store using hash values",
+        "C) To verify channel configuration",
+        "D) To verify transaction endorsements"
+      ],
+      "correct_answer": "B",
+      "explanation": "The ledgerutil verify command verifies the integrity of local ledgers by checking if hash values in block headers are consistent with block contents. It detects errors like DataHash mismatches or PreviousHash mismatches in the blockchain.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/ledgerutil.html",
+      "topic": "Ledgerutil Commands"
+    },
+    {
+      "question": "What is the 'osnadmin channel update' command used for?",
+      "options": [
+        "A) To update peer channel memberships",
+        "B) To update an Ordering Service Node to a channel with a config update envelope",
+        "C) To update channel creation transactions",
+        "D) To update chaincode on the channel"
+      ],
+      "correct_answer": "B",
+      "explanation": "The osnadmin channel update command updates an Ordering Service Node (OSN) to a channel by providing an up-to-date config update envelope file. This allows for channel configuration changes.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/osnadmin.html",
+      "topic": "Osnadmin Commands"
+    },
+    {
+      "question": "What does 'osnadmin channel fetch' command do?",
+      "options": [
+        "A) Fetches channel information from the ordering service",
+        "B) Fetches a specified block and writes it to a file",
+        "C) Fetches the channel creation transaction",
+        "D) Fetches channel member information"
+      ],
+      "correct_answer": "B",
+      "explanation": "The osnadmin channel fetch command fetches a specified block from an Ordering Service Node, identified by blockID (can be newest, oldest, config, or a specific number), and writes it to an output file.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/osnadmin.html",
+      "topic": "Osnadmin Commands"
+    },
+    {
+      "question": "What parameter in osnadmin allows for certificate expiration adjustments during TLS handshakes?",
+      "options": [
+        "A) --tls-expire-time",
+        "B) --tlsHandshakeTimeShift",
+        "C) --certificate-grace-period",
+        "D) --tls-grace-period"
+      ],
+      "correct_answer": "B",
+      "explanation": "The --tlsHandshakeTimeShift parameter shifts backward the time for certificate expiration checks during TLS handshakes, allowing orderers with expired TLS certificates to temporarily participate in consensus for certificate updates.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/osnadmin.html",
+      "topic": "Osnadmin Commands"
+    },
+    {
+      "question": "What is the purpose of 'configtxlator start' command?",
+      "options": [
+        "A) To start a peer node",
+        "B) To start the configtxlator REST server for HTTP-based operations",
+        "C) To start a channel creation transaction",
+        "D) To start a network fabric"
+      ],
+      "correct_answer": "B",
+      "explanation": "The configtxlator start command starts a REST server that exposes configtxlator functions over HTTP, allowing operations like encoding, decoding, and computing updates via REST API calls.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/configtxlator.html",
+      "topic": "Configtxlator Commands"
+    },
+    {
+      "question": "What flags can be used with 'configtxlator start' to configure the REST server?",
+      "options": [
+        "A) --hostname and --port only",
+        "B) --hostname, --port, and --CORS flags",
+        "C) --server-name and --api-port",
+        "D) --address and --protocol"
+      ],
+      "correct_answer": "B",
+      "explanation": "The configtxlator start command supports --hostname (default 0.0.0.0), --port (default 7059), and --CORS flags to configure allowable CORS domains for the REST server.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/configtxlator.html",
+      "topic": "Configtxlator Commands"
+    },
+    {
+      "question": "What does 'configtxlator compute_update' command do?",
+      "options": [
+        "A) Computes the hash of a configuration",
+        "B) Computes the difference between two marshaled common.Config messages",
+        "C) Computes channel update policy",
+        "D) Computes consensus parameters"
+      ],
+      "correct_answer": "B",
+      "explanation": "The configtxlator compute_update command takes two marshaled common.Config messages and computes the config update which transitions between the two, allowing for configuration changes.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/configtxlator.html",
+      "topic": "Configtxlator Commands"
+    },
+    {
+      "question": "What does the '-asOrg' flag in configtxgen do?",
+      "options": [
+        "A) Specifies which organization performs the config generation",
+        "B) Sets the organization name for the channel",
+        "C) Generates configuration only for a specific organization",
+        "D) Assigns organization permissions"
+      ],
+      "correct_answer": "A",
+      "explanation": "The -asOrg flag performs config generation as a particular organization (by name), only including values in the write set that the specified organization has privilege to set.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/configtxgen.html",
+      "topic": "Configtxgen Commands"
+    },
+    {
+      "question": "What is the purpose of '-printOrg' flag in configtxgen?",
+      "options": [
+        "A) Prints organization names in a channel",
+        "B) Prints the definition of an organization as JSON",
+        "C) Prints all organizations in the network",
+        "D) Prints organization member list"
+      ],
+      "correct_answer": "B",
+      "explanation": "The -printOrg flag constructs an organization definition based on parameters like MSPDir from configtx.yaml and prints it as JSON. This output is useful for channel reconfiguration workflows, such as adding a new organization member.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/configtxgen.html",
+      "topic": "Configtxgen Commands"
+    },
+    {
+      "question": "What does 'cryptogen showtemplate' command do?",
+      "options": [
+        "A) Shows the template of certificates generated",
+        "B) Shows the default configuration template for crypto-config.yaml",
+        "C) Shows network templates",
+        "D) Shows MSP templates"
+      ],
+      "correct_answer": "B",
+      "explanation": "The cryptogen showtemplate command displays the default configuration template for crypto-config.yaml, which can be used as a starting point for defining cryptographic material generation.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/cryptogen.html",
+      "topic": "Cryptogen Commands"
+    },
+    {
+      "question": "What is the '--output' flag used for in 'cryptogen generate'?",
+      "options": [
+        "A) Specifies where to output generated certificates and keys",
+        "B) Specifies the output file format",
+        "C) Specifies the organization output name",
+        "D) Specifies the blockchain output directory"
+      ],
+      "correct_answer": "A",
+      "explanation": "The --output flag (default value: 'crypto-config') specifies the output directory where cryptogen will place all generated artifacts including certificates and keys.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/cryptogen.html",
+      "topic": "Cryptogen Commands"
+    },
+    {
+      "question": "What does 'peer channel signconfigtx' command do?",
+      "options": [
+        "A) Signs all configuration transactions",
+        "B) Signs the supplied configtx update file in place on the filesystem",
+        "C) Signs the channel configuration",
+        "D) Signs the channel creation transaction"
+      ],
+      "correct_answer": "B",
+      "explanation": "The peer channel signconfigtx command signs the supplied configtx update file in place on the filesystem. This is required when multiple organizations need to approve a configuration change.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/peer_channel.html",
+      "topic": "Peer Channel Commands"
+    },
+    {
+      "question": "What is the difference between 'peer channel fetch newest' and 'peer channel fetch config'?",
+      "options": [
+        "A) No difference, both retrieve the latest block",
+        "B) 'newest' retrieves the most recent block, 'config' retrieves the latest configuration block",
+        "C) 'config' retrieves the genesis block",
+        "D) 'newest' retrieves genesis block, 'config' retrieves recent blocks"
+      ],
+      "correct_answer": "B",
+      "explanation": "peer channel fetch newest retrieves the most recent block in the channel, while peer channel fetch config retrieves the latest configuration block, which contains channel configuration information.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/peer_channel.html",
+      "topic": "Peer Channel Commands"
+    },
+    {
+      "question": "What does the '--transient' flag do in peer chaincode invoke/query?",
+      "options": [
+        "A) Makes the transaction temporary",
+        "B) Passes a transient map of arguments in JSON encoding that are not recorded on the ledger",
+        "C) Specifies transient network configuration",
+        "D) Marks the chaincode as transient"
+      ],
+      "correct_answer": "B",
+      "explanation": "The --transient flag provides a map of arguments in JSON encoding that are passed to the chaincode but are not recorded on the ledger. This is useful for sensitive data like passwords.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/peer_chaincode.html",
+      "topic": "Peer Chaincode Commands"
+    },
+    {
+      "question": "What does the '--waitForEvent' flag do in peer chaincode invoke?",
+      "options": [
+        "A) Waits for all endorsements before invoking",
+        "B) Waits for the event from each peer's deliver filtered service signifying transaction commit success",
+        "C) Waits for channel membership updates",
+        "D) Waits for orderer response"
+      ],
+      "correct_answer": "B",
+      "explanation": "The --waitForEvent flag makes the invoke command wait for the event from each peer's deliver filtered service, signifying that the invoke transaction has been committed successfully.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/peer_chaincode.html",
+      "topic": "Peer Chaincode Commands"
+    },
+    {
+      "question": "What is the 'genesis block' in a Hyperledger Fabric blockchain?",
+      "options": [
+        "A) The most recent block in the blockchain",
+        "B) The first block (block 0) in a channel that provides initial channel configuration",
+        "C) The block containing user transactions",
+        "D) The block containing only transaction endorsements"
+      ],
+      "correct_answer": "B",
+      "explanation": "The genesis block is block 0, the first block in a channel. Unlike other blocks that contain user transactions, it contains the initial channel configuration and serves as the starting point for the ledger.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/ledger.html",
+      "topic": "Blockchain Architecture"
+    },
+    {
+      "question": "What are the three main sections of a block in Hyperledger Fabric?",
+      "options": [
+        "A) Transaction, Signature, Header",
+        "B) Block Header, Block Data, Block Metadata",
+        "C) Configuration, Transactions, Endorsements",
+        "D) Data, Hash, Signature"
+      ],
+      "correct_answer": "B",
+      "explanation": "A block consists of three sections: Block Header (block number, current block hash, previous block hash), Block Data (list of transactions), and Block Metadata (creator certificate, signature, and valid/invalid indicators).",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/ledger.html",
+      "topic": "Blockchain Architecture"
+    },
+    {
+      "question": "What is stored in the Block Metadata section of a block?",
+      "options": [
+        "A) Only transaction hashes",
+        "B) Creator certificate, signature, valid/invalid indicators for transactions, and cumulative state update hash",
+        "C) Channel configuration",
+        "D) Endorsement policies"
+      ],
+      "correct_answer": "B",
+      "explanation": "Block Metadata contains the creator certificate and signature for block verification, a bitmap of valid/invalid indicators for each transaction, and a hash of cumulative state updates for detecting state forks.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/ledger.html",
+      "topic": "Blockchain Architecture"
+    },
+    {
+      "question": "In a Hyperledger Fabric transaction, what does the 'Response' field contain?",
+      "options": [
+        "A) The chaincode function name",
+        "B) The Read-Write set capturing before and after values of world state",
+        "C) The endorsement signatures",
+        "D) The transaction timestamp"
+      ],
+      "correct_answer": "B",
+      "explanation": "The Response field in a transaction captures the Read-Write set (RW-set), which contains the before and after values of the world state as output from the smart contract execution.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/ledger.html",
+      "topic": "Transaction Structure"
+    },
+    {
+      "question": "What is the purpose of the 'Endorsements' field in a transaction?",
+      "options": [
+        "A) To store transaction fees",
+        "B) To provide a list of signed transaction responses from required organizations satisfying the endorsement policy",
+        "C) To authorize transaction type",
+        "D) To define transaction priority"
+      ],
+      "correct_answer": "B",
+      "explanation": "The Endorsements field contains a list of signed transaction responses from each required organization sufficient to satisfy the endorsement policy. Only endorsements matching the proposal satisfy the policy.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/ledger.html",
+      "topic": "Transaction Structure"
+    },
+    {
+      "question": "What does the 'admincerts' folder in an MSP contain?",
+      "options": [
+        "A) Admin user certificates",
+        "B) Certificates that identify administrators of an organization (DEPRECATED in Fabric v1.4.3+)",
+        "C) Certificates for admin endorsement",
+        "D) Administrative channel configuration"
+      ],
+      "correct_answer": "B",
+      "explanation": "The admincerts folder contains X.509 certificates identifying administrators who have administrative responsibility on a peer or orderer. Note: This folder is deprecated in Fabric v1.4.3 and later versions use endorsement policies for admin authorization instead.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/msp.html",
+      "topic": "MSP Configuration"
+    },
+    {
+      "question": "What does the 'tls cacerts' folder in an MSP contain?",
+      "options": [
+        "A) TLS private keys",
+        "B) Self-signed X.509 Root CA certificates trusted for TLS communication",
+        "C) Channel TLS configuration",
+        "D) TLS handshake certificates"
+      ],
+      "correct_answer": "B",
+      "explanation": "The tls cacerts folder contains self-signed X.509 certificates of Root CAs trusted by the organization for secure TLS communications between network nodes (peers and orderers).",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/msp.html",
+      "topic": "MSP Configuration"
+    },
+    {
+      "question": "What is the purpose of 'tlsintermediatecacerts' folder in an MSP?",
+      "options": [
+        "A) Stores temporary TLS certificates",
+        "B) Contains intermediate CA certificates trusted for TLS communication",
+        "C) Stores revoked TLS certificates",
+        "D) Contains peer TLS configuration"
+      ],
+      "correct_answer": "B",
+      "explanation": "The tlsintermediatecacerts folder contains a list of intermediate CA certificates trusted by the organization for TLS communication. This folder is particularly useful when commercial CAs are used for TLS certificates.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/msp.html",
+      "topic": "MSP Configuration"
+    },
+    {
+      "question": "What is the 'operationscerts' folder used for in an MSP?",
+      "options": [
+        "A) Certificates for channel operations",
+        "B) Certificates required to communicate with the Fabric Operations Service API",
+        "C) Operational peer certificates",
+        "D) Channel operation endorsements"
+      ],
+      "correct_answer": "B",
+      "explanation": "The operationscerts folder contains the certificates required to communicate with the Fabric Operations Service API for monitoring and operations purposes.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/msp.html",
+      "topic": "MSP Configuration"
+    },
+    {
+      "question": "What does 'General.BootstrapMethod' parameter in orderer.yaml specify?",
+      "options": [
+        "A) The ordering consensus method",
+        "B) The method the orderer uses to bootstrap, either 'file' or 'none'",
+        "C) The channel bootstrap process",
+        "D) The network bootstrap configuration"
+      ],
+      "correct_answer": "B",
+      "explanation": "The General.BootstrapMethod parameter specifies how the orderer bootstraps, accepting values 'file' (uses specified bootstrap file) or 'none' (uses channel participation API without system channel).",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/orderer_config.html",
+      "topic": "Orderer Configuration"
+    },
+    {
+      "question": "What is the purpose of 'General.Cluster' settings in orderer.yaml?",
+      "options": [
+        "A) Configures orderer peering with peers",
+        "B) Configures intra-cluster Raft communication between orderers",
+        "C) Configures the ordering consensus algorithm",
+        "D) Configures the consensus protocol"
+      ],
+      "correct_answer": "B",
+      "explanation": "General.Cluster settings configure the communication parameters for intra-cluster (Raft) communication between orderer nodes, including sending buffer size and separate listener configuration.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/orderer_config.html",
+      "topic": "Orderer Configuration"
+    },
+    {
+      "question": "What does 'Admin.ListenAddress' parameter in orderer.yaml configure?",
+      "options": [
+        "A) The address orderers listen to from peers",
+        "B) The admin server listen address used by osnadmin CLI",
+        "C) The admin user network address",
+        "D) The admin consensus address"
+      ],
+      "correct_answer": "B",
+      "explanation": "The Admin.ListenAddress parameter specifies the address where the orderer admin server listens. This endpoint is used by the osnadmin CLI to perform channel-related operations.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/orderer_config.html",
+      "topic": "Orderer Configuration"
+    },
+    {
+      "question": "What does 'ChannelParticipation.Enabled' parameter in orderer.yaml do?",
+      "options": [
+        "A) Enables channels to participate in ordering",
+        "B) Enables the channel participation API for dynamic channel management",
+        "C) Enables channel consensus",
+        "D) Enables channel communication"
+      ],
+      "correct_answer": "B",
+      "explanation": "Setting Orderer.ChannelParticipation.Enabled to true enables the channel participation API functionality, allowing orderers to dynamically join or leave channels without a system channel.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/orderer_config.html",
+      "topic": "Channel Participation API"
+    },
+    {
+      "question": "In Hyperledger Fabric network structure, what is a 'Consortium'?",
+      "options": [
+        "A) A group of endorsing peers",
+        "B) A set of member organizations recognized by the ordering service for channel creation",
+        "C) A group of orderers",
+        "D) A collection of channels"
+      ],
+      "correct_answer": "B",
+      "explanation": "A Consortium is a set of member organizations that are recognized by the ordering service for the purposes of creating and managing channels. Consortiums are defined in the orderer's configuration.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/fabric_model.html",
+      "topic": "Network Structure"
+    },
+    {
+      "question": "What is a 'System Channel' (deprecated in Fabric v3.0)?",
+      "options": [
+        "A) A channel for system transactions only",
+        "B) The special orderer channel used for ordering system management",
+        "C) A backup channel configuration",
+        "D) A channel for peer management"
+      ],
+      "correct_answer": "B",
+      "explanation": "A System Channel (now deprecated in Fabric v3.0) was the special orderer channel used for ordering system management and creation of new application channels. Modern versions use the channel participation API instead.",
+      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/create_channel.html",
+      "topic": "Network Structure"
     }
   ]
 }
