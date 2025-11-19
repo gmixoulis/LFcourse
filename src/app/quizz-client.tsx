@@ -197,7 +197,7 @@ export default function QuizClient({
     if (!showExplanation) {
       return selectedAnswer === optionLetter
         ? 'bg-secondary border-primary'
-        : 'hover:bg-secondary/80 border-border';
+        : ' border-border';
     }
 
     const isCorrectAnswer = optionLetter === currentQuestion.correct_answer;
