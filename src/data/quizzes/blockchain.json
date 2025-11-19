@@ -308,18 +308,6 @@
       "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/create_channel/create_channel_participation.html"
     },
     {
-      "question": "What is the role of Membership Service Provider (MSP) in Hyperledger Fabric?",
-      "options": [
-        "A) To order transactions into blocks",
-        "B) To provide identity validation and authentication services",
-        "C) To store chaincode",
-        "D) To manage consensus protocols"
-      ],
-      "correct_answer": "B",
-      "explanation": "MSP provides identity validation and authentication services by defining the rules for validating identities and determining member privileges.",
-      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/msp.html"
-    },
-    {
       "question": "What happens during the endorsement phase of transaction flow?",
       "options": [
         "A) Transactions are ordered into blocks",
@@ -330,18 +318,6 @@
       "correct_answer": "B",
       "explanation": "During endorsement, peers execute the chaincode simulation and generate read/write sets along with endorsement signatures.",
       "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/chaincode.html"
-    },
-    {
-      "question": "What is the purpose of anchor peers in Hyperledger Fabric?",
-      "options": [
-        "A) To endorse all transactions",
-        "B) To order transactions",
-        "C) To facilitate cross-organization gossip communication",
-        "D) To store channel configuration"
-      ],
-      "correct_answer": "C",
-      "explanation": "Anchor peers facilitate gossip communication between organizations by serving as entry points for peers from other organizations.",
-      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/peers/peers.html"
     },
     {
       "question": "What is the difference between world state and blockchain in Fabric?",
@@ -1323,30 +1299,6 @@
       "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/txflow.html"
     },
     {
-      "question": "Which consensus mechanisms does Hyperledger Fabric's pluggable consensus support?",
-      "options": [
-        "A) Both Crash Fault Tolerant (CFT) and Byzantine Fault Tolerant (BFT)",
-        "B) Only Crash Fault Tolerant (CFT)",
-        "C) Only Byzantine Fault Tolerant (BFT)",
-        "D) Only Practical Byzantine Fault Tolerance (pBFT)"
-      ],
-      "correct_answer": "A",
-      "explanation": "Hyperledger Fabric's pluggable consensus architecture supports both CFT and BFT consensus mechanisms depending on deployment requirements.",
-      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/orderer/ordering_service.html"
-    },
-    {
-      "question": "What is the primary purpose of Private Data Collections in Hyperledger Fabric?",
-      "options": [
-        "A) To store public data more efficiently",
-        "B) To enable private communication between blockchain networks",
-        "C) To increase the transaction speed on the network",
-        "D) To allow a subset of organizations to share confidential data"
-      ],
-      "correct_answer": "D",
-      "explanation": "Private data collections let a defined subset of channel members share confidential key-value data without writing the data itself to the shared ledger.",
-      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/private-data/private-data.html"
-    },
-    {
       "question": "In a private data collection definition file, what does the property \"blockToLive\" specify?",
       "options": [
         "A) The maximum number of peers required to endorse the transaction",
@@ -1826,18 +1778,6 @@
       "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/gossip.html"
     },
     {
-      "question": "What happens during the endorsement phase of a transaction lifecycle in Hyperledger Fabric?",
-      "options": [
-        "A) The ordering service verifies the transaction order",
-        "B) Peers commit the transaction to the ledger",
-        "C) The transaction is validated and added to a block",
-        "D) Peers simulate the transaction execution and create a read/write set"
-      ],
-      "correct_answer": "D",
-      "explanation": "Endorsing peers simulate execution, returning RW sets and signatures.",
-      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/peers/peers.html"
-    },
-    {
       "question": "Why is it important to inspect proposal responses during the transaction lifecycle?",
       "options": [
         "A) To automatically update the ledger with any proposed changes",
@@ -1932,18 +1872,6 @@
       "correct_answer": "A",
       "explanation": "Fabric separates immutable blockchain history from the mutable world-state database.",
       "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/ledger/ledger.html"
-    },
-    {
-      "question": "What is the primary function of a Membership Service Provider (MSP) in Hyperledger Fabric?",
-      "options": [
-        "A) To define the rules and policies for membership and identity validation",
-        "B) To manage and distribute digital certificates within the network",
-        "C) To encrypt and decrypt data during transactions on the blockchain",
-        "D) To maintain a record of all transactions on the blockchain ledger"
-      ],
-      "correct_answer": "A",
-      "explanation": "An MSP bundles CA certs, CRLs, config.yaml and rules that peer/orderer nodes use to verify identities.",
-      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/orderer/ordering_service.html"
     },
     {
       "question": "What is the purpose of a Certificate Revocation List (CRL) in a PKI system?",
@@ -2333,19 +2261,6 @@
       "explanation": "The `externalEndpoint` is critical for cross-organization communication. It's the address that this peer makes public to the rest of the channel members outside its own org, allowing them to establish a gossip connection.",
       "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/channels.html"
     },
-
-    {
-      "question": "What is the purpose of the `TLSHandshakeTimeShift` parameter in a peer's or orderer's configuration?",
-      "options": [
-        "A) To set the network-wide time for TLS certificate timestamps.",
-        "B) To account for time zone differences between nodes.",
-        "C) To allow for a grace period when a TLS certificate has expired, to prevent connection failures due to clock skew.",
-        "D) To force a TLS handshake every time a new connection is made."
-      ],
-      "correct_answer": "C",
-      "explanation": "If a node's TLS certificate has expired but the system clocks are slightly out of sync, `TLSHandshakeTimeShift` provides a buffer (e.g., 30s) to temporarily allow the connection, preventing network disruption while certificates are being renewed.",
-      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/orderer/ordering_service.html"
-    },
     {
       "question": "In a Raft ordering service with 5 nodes, what is the maximum number of nodes that can fail while still maintaining quorum and processing transactions?",
       "options": ["A) 1", "B) 2", "C) 3", "D) 4"],
@@ -2575,18 +2490,6 @@
       "correct_answer": "D",
       "explanation": "If the `blockToLive` parameter is omitted from the collection configuration, it defaults to 0. A value of 0 means the private data will be stored indefinitely on the peers and will never be automatically purged.",
       "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/private-data/private-data.html"
-    },
-    {
-      "question": "What is the purpose of the `configtxlator` tool?",
-      "options": [
-        "A) To translate chaincode from one programming language to another.",
-        "B) To generate the initial genesis block and channel transaction artifacts.",
-        "C) To convert Fabric configuration formats (like protobuf) to a human-readable format (JSON) and back.",
-        "D) To automatically create and deploy a Hyperledger Fabric network."
-      ],
-      "correct_answer": "C",
-      "explanation": "The `configtxlator` (Configuration Transaction Translator) is a utility that helps with updating channel configurations. It can decode binary protobuf config blocks into JSON, allow users to edit them, and then encode them back into the protobuf format required by Fabric.",
-      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/channels.html"
     },
     {
       "question": "According to the official documentation, which chaincode language generally exhibits the lowest performance and highest resource consumption?",
@@ -2972,19 +2875,6 @@
       "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/orderer/ordering_service.html"
     },
     {
-      "question": "What is the primary function of the Gossip protocol in Hyperledger Fabric?",
-      "options": [
-        "A) To validate and commit transactions to the ledger",
-        "B) To establish network of known peers and disseminate ledger/channel data",
-        "C) To manage user identities and access control",
-        "D) To order transactions into blocks"
-      ],
-      "correct_answer": "B",
-      "explanation": "The gossip protocol manages peer discovery, channel membership, and disseminates ledger and state information across the network in a scalable fashion.",
-      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/gossip.html",
-      "topic": "Network Communication"
-    },
-    {
       "question": "What role do leader peers play in the Gossip protocol?",
       "options": [
         "A) They validate all transactions on the network",
@@ -3102,19 +2992,6 @@
       "topic": "Orderer Configuration"
     },
     {
-      "question": "What is the execute-order-validate (EOV) transaction flow in Hyperledger Fabric?",
-      "options": [
-        "A) First order, then execute, then validate",
-        "B) First execute, then order, then validate",
-        "C) First validate, then order, then execute",
-        "D) Execute, order, and validate happen simultaneously"
-      ],
-      "correct_answer": "B",
-      "explanation": "In the execute-order-validate architecture, transactions are first executed (endorsed) by peers, then ordered into blocks, and finally validated before commitment.",
-      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/txflow.html",
-      "topic": "Transaction Processing"
-    },
-    {
       "question": "In Hyperledger Fabric, what is MVCC (Multi-Version Concurrency Control) conflict?",
       "options": [
         "A) When two peers have different versions of the ledger",
@@ -3217,19 +3094,6 @@
       "explanation": "osnadmin requires the orderer admin listen address, TLS CA certificate, client certificate, and client key to communicate with the orderer.",
       "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/create_channel/create_channel_participation.html",
       "topic": "Orderer Administration"
-    },
-    {
-      "question": "Which command is used to request a ledger snapshot at a specific block height in Hyperledger Fabric?",
-      "options": [
-        "A) peer snapshot request --channel mychannel --blockHeight 1000",
-        "B) peer snapshot submitrequest --channel mychannel --blockHeight 1000",
-        "C) peer snapshot create --channel mychannel --height 1000",
-        "D) peer ledger snapshot --channel mychannel --block 1000"
-      ],
-      "correct_answer": "B",
-      "explanation": "The peer snapshot submitrequest command is used to submit a ledger snapshot request for a specific channel at a given block height.",
-      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/channels.html",
-      "topic": "Peer Snapshot Commands"
     },
     {
       "question": "What does the 'peer snapshot querystatus' command do?",
