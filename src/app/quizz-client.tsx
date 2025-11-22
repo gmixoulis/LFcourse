@@ -204,13 +204,27 @@ export default function QuizClient({
     const isSelectedAnswer = optionLetter === selectedAnswer;
 
     if (isCorrectAnswer) {
-      return 'bg-primary/10 border-primary text-primary font-bold';
+      return (
+        'bg-primary/10 border-primary text-primary font-bold '
+        + 'dark:bg-transparent dark:text-transparent dark:bg-clip-text '
+        + 'dark:bg-gradient-to-r dark:from-[#00ff99] dark:to-[#00ffd5] '
+        + 'dark:border-[#00ff99] dark:shadow-[0_0_18px_rgba(0,255,153,0.18)]'
+      );
     }
     if (isSelectedAnswer && !isCorrect) {
-      return 'bg-destructive/10 border-destructive text-destructive font-bold';
+      return (
+        'bg-destructive/10 border-destructive text-destructive font-bold '
+        + 'dark:bg-transparent dark:text-transparent dark:bg-clip-text '
+        + 'dark:bg-gradient-to-r dark:from-[#ff6b88] dark:to-[#ff2a55] '
+        + 'dark:border-[#ff4d6d] dark:shadow-[0_0_18px_rgba(255,77,109,0.18)]'
+      );
     }
 
-    return 'bg-muted/50 text-muted-foreground cursor-not-allowed border-border';
+    return (
+      'bg-muted/50 text-muted-foreground cursor-not-allowed border-border '
+      + 'dark:bg-transparent dark:text-muted-foreground/70 '
+      + 'dark:border-[rgba(255,255,255,0.06)]'
+    );
   };
 
   // --- Loading State ---
@@ -342,28 +356,44 @@ export default function QuizClient({
       {currentQuestion && (
         <>
           <CardContent className='space-y-6 p-4 sm:p-8'>
-            <p className='text-xl text-center font-medium font-body h-24 flex items-center justify-center'>
+            <p className='text-xl text-center font-medium font-body py-4 break-words whitespace-normal'>
               {currentQuestion.question}
             </p>
 
             <div className='grid grid-cols-1 md:grid-cols-2 gap-3'>
-              {currentQuestion.options.map((option, index) => (
-                <Button
-                  key={index}
-                  variant='outline'
-                  className={cn(
-                    'h-auto justify-start p-4 text-left whitespace-normal transition-all duration-300 border-2',
-                    getOptionStyling(option)
-                  )}
-                  onClick={() => handleAnswerSelect(option)}
-                  disabled={showExplanation}
-                >
-                  <span className='font-bold mr-4'>
-                    {getOptionLetter(option)}.
-                  </span>
-                  <span>{option.substring(3)}</span>
-                </Button>
-              ))}
+              {currentQuestion.options.map((option, index) => {
+                const letter = getOptionLetter(option);
+                const isCorrectOpt = letter === currentQuestion.correct_answer;
+                // show neon only after an answer has been pressed (showExplanation)
+                const showNeonForCorrect = showExplanation && isCorrectOpt;
+
+                const innerTextClass = cn(
+                  showNeonForCorrect && 'neon-bright-green'
+                );
+
+                const buttonGlowClass = cn(
+                  showNeonForCorrect && 'neon-button-bright-green'
+                );
+
+                return (
+                  <Button
+                    key={index}
+                    variant='outline'
+                    className={cn(
+                      'h-auto justify-start p-4 text-left whitespace-normal transition-all duration-300 border-2',
+                      getOptionStyling(option),
+                      buttonGlowClass
+                    )}
+                    onClick={() => handleAnswerSelect(option)}
+                    disabled={showExplanation}
+                  >
+                    <span className={cn('font-bold mr-4', innerTextClass)}>
+                      {letter}.
+                    </span>
+                    <span className={innerTextClass}>{option.substring(3)}</span>
+                  </Button>
+                );
+              })}
             </div>
 
             {showExplanation && (

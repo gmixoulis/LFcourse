@@ -1,6 +1,8 @@
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
+import DarkToggle from '@/components/ui/dark-toggle'
+import DavidInit from '@/components/ui/david-init'
 
 export const metadata: Metadata = {
   title: 'JSON Quizzinator',
@@ -20,6 +22,10 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased">
+        <DavidInit />
+        <div className="fixed top-4 right-4 z-50"> 
+          <DarkToggle />
+        </div>
         {children}
         <Toaster />
       </body>
