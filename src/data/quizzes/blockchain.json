@@ -1383,9 +1383,9 @@
         "C) Private Data Collections",
         "D) Network and Communication Security"
       ],
-      "correct_answer": "C",
-      "explanation": "Private data collections restrict key-value visibility to an authorized subset of orgs, enforced by each peer’s transient data store and access checks.",
-      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/private-data/private-data.html"
+      "correct_answer": "A",
+      "explanation": "",
+      "documentation_url": ""
     },
     {
       "question": "What is the primary benefit of scaling nodes (adding peers or orderers) in a Hyperledger Fabric network?",
