@@ -3,6 +3,7 @@ export interface Question {
   options: string[];
   correct_answer: string;
   explanation: string;
+  documentation_url?: string;
 }
 
 export interface QuizData {
