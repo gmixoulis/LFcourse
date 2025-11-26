@@ -848,13 +848,6 @@
       "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/orderer/ordering_service.html"
     },
     {
-      "question": "What is the maximum recommended size for AbsoluteMaxBytes in block cutting parameters?",
-      "options": ["A) 10 MB", "B) 25 MB", "C) 49 MB", "D) 100 MB"],
-      "correct_answer": "C",
-      "explanation": "The maximum recommended size is 49 MB, based on the headroom needed for the default grpc max message size of 100 MB.",
-      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/key_concepts.html"
-    },
-    {
       "question": "What is the minimum recommended network connectivity speed between Fabric nodes?",
       "options": ["A) 100 Mbps", "B) 500 Mbps", "C) 1 Gbps", "D) 10 Gbps"],
       "correct_answer": "C",
@@ -2693,13 +2686,6 @@
       "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/channels.html"
     },
     {
-      "question": "Which operations service endpoint provides health check information for Fabric nodes?",
-      "options": ["A) /health", "B) /healthz", "C) /status", "D) /alive"],
-      "correct_answer": "B",
-      "explanation": "The '/healthz' endpoint is the standard health check URL that returns the health status of the peer and its joined channels.",
-      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/channels.html"
-    },
-    {
       "question": "What is the purpose of the 'EXTERNAL_ENDPOINT' configuration for peers in service discovery?",
       "options": [
         "A) To set the peer's admin interface address",
@@ -3497,19 +3483,6 @@
       "explanation": "The peer channel update command submits a configuration update transaction to modify an existing channel.",
       "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/channels.html",
       "topic": "Peer Channel Commands"
-    },
-    {
-      "question": "What does the --isInit flag do when used with peer chaincode invoke?",
-      "options": [
-        "A) Runs a test initialization without committing",
-        "B) Invokes the chaincode Init function for initialization",
-        "C) Sets initial values for the chaincode",
-        "D) Indicates this is the first invocation"
-      ],
-      "correct_answer": "B",
-      "explanation": "The --isInit flag calls the Init function to initialize the chaincode instead of calling a regular function.",
-      "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/chaincode.html",
-      "topic": "Peer Chaincode Commands"
     },
     {
       "question": "What is the primary purpose of the 'ledgerutil compare' command in Hyperledger Fabric?",
