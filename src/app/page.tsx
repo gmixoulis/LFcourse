@@ -15,7 +15,7 @@ async function getQuizData(): Promise<{
     'src',
     'data',
     'quizzes',
-    'blockchain.json'
+    'blockchain_test.json'
   );
   try {
     const fileContent = await fs.readFile(filePath, 'utf-8');

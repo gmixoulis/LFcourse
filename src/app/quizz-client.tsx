@@ -280,24 +280,6 @@ export default function QuizClient({
     );
   }
 
-  if (!currentQuestion) {
-    return (
-      <main className='flex min-h-screen flex-col items-center justify-center bg-background p-8'>
-        <Card className='w-full max-w-2xl'>
-          <CardHeader>
-            <CardTitle>Error Displaying Question</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p>
-              Could not find the current question. This might indicate an issue
-              with question indexing or data integrity.
-            </p>
-          </CardContent>
-        </Card>
-      </main>
-    );
-  }
-
   // --- Quiz Completed State ---
   if (quizCompleted) {
     return (
@@ -325,6 +307,24 @@ export default function QuizClient({
           </Button>
         </CardContent>
       </Card>
+    );
+  }
+
+  if (!currentQuestion) {
+    return (
+      <main className='flex min-h-screen flex-col items-center justify-center bg-background p-8'>
+        <Card className='w-full max-w-2xl'>
+          <CardHeader>
+            <CardTitle>Error Displaying Question</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p>
+              Could not find the current question. This might indicate an issue
+              with question indexing or data integrity.
+            </p>
+          </CardContent>
+        </Card>
+      </main>
     );
   }
 
@@ -412,15 +412,15 @@ export default function QuizClient({
                   {isCorrect ? 'Correct!' : 'Incorrect.'}
                 </AlertTitle>
                 <AlertDescription className='pt-1'>
-                    {currentQuestion.explanation + " "}
-                          <a 
-                            href={currentQuestion.documentation_url} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            style={{ color: 'blue', textDecoration: 'underline' }}
-                          >
-                            Documentation Link
-                          </a>
+                  {currentQuestion.explanation + " "}
+                  <a
+                    href={currentQuestion.documentation_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: 'blue', textDecoration: 'underline' }}
+                  >
+                    Documentation Link
+                  </a>
                 </AlertDescription>
               </Alert>
             )}

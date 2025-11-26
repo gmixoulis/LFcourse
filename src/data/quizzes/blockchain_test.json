@@ -1,0 +1,16 @@
+{
+    "Hyperledger_Fabric_Private_Exam_Bank": [
+        {
+            "question": "What is a key difference between permissioned and permissionless blockchains?",
+            "options": [
+                "A) Permissioned blockchains are faster but less secure",
+                "B) Permissionless blockchains require known identities",
+                "C) Permissioned blockchains have known, identified participants",
+                "D) There is no significant difference"
+            ],
+            "correct_answer": "C",
+            "explanation": "Permissioned blockchains like Hyperledger Fabric operate among known, identified participants under a governance model, while permissionless blockchains allow anonymous participation.",
+            "documentation_url": "https://hyperledger-fabric.readthedocs.io/en/latest/ledger/ledger.html"
+        }
+    ]
+}
